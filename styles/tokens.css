@@ -18,7 +18,7 @@
 }
 
 html{scroll-behavior:smooth;background:var(--paper);}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip;}
 a{color:var(--ink);text-underline-offset:4px;}
 a:hover{color:var(--accent-ink);}
 ::selection{background:rgba(245,130,31,.3);}
