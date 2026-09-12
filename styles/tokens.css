@@ -19,6 +19,12 @@
 
 html{scroll-behavior:smooth;background:var(--paper);}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip;}
+/* the page runtime injects html,body{height:100%} on every standalone page,
+   which caps body's box to one viewport tall and breaks position:sticky for
+   anything inside it (content still renders below via overflow, but sticky
+   elements can only stick within body's own box). Let both grow with content
+   instead, while still filling at least one viewport. */
+html,body{height:auto!important;min-height:100%;}
 a{color:var(--ink);text-underline-offset:4px;}
 a:hover{color:var(--accent-ink);}
 ::selection{background:rgba(245,130,31,.3);}
