@@ -1,0 +1,29 @@
+/* Seynox design system — the single source of truth for brand tokens and
+   base resets. Linked from every page and component. Change a color, font,
+   or base rule here once; it applies everywhere. Page-level <style> blocks
+   should only contain markup that's unique to that page/component. */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --accent:#F5821F;
+  --accent-ink:#B45A0C;
+  --navy:#14193B;
+  --ink:#14193B;
+  --soft:rgba(20,25,59,.68);
+  --paper:#FAFAF8;
+  --surface:#F2F0EA;
+  --rule:rgba(20,25,59,.24);
+  --hair:rgba(20,25,59,.11);
+}
+
+html{scroll-behavior:smooth;background:var(--paper);}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:var(--ink);text-underline-offset:4px;}
+a:hover{color:var(--accent-ink);}
+::selection{background:rgba(245,130,31,.3);}
+[data-reveal][data-seen="1"]{opacity:1!important;transform:none!important;}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+  [data-reveal]{opacity:1!important;transform:none!important;}
+}
