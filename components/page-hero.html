@@ -49,14 +49,14 @@
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;eyebrow&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Service&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Page title&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;lede&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;One paragraph that says what this page is for.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;parent&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;What we do&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;parentHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Services.dc.html&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;crumb&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;This page&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;eyebrow&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Service&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Page title&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;lede&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;One paragraph that says what this page is for.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;parent&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;What we do&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;parentHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;/services&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;crumb&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;This page&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   renderVals() {
     const parent = (this.props.parent || '').trim();
     const crumb = (this.props.crumb || '').trim();
     return {
       showParent: !!parent && parent.toLowerCase() !== crumb.toLowerCase(),
-      secondaryHref: this.props.secondaryHref || 'Pricing.dc.html',
+      secondaryHref: this.props.secondaryHref || '/pricing',
       secondaryLabel: this.props.secondaryLabel || 'See from-prices →'
     };
   }

@@ -1,21 +1,21 @@
 RewriteEngine On
 
-# component partials fetched by dc-import (client JS), kept flat by request path
-RewriteRule ^(site-header|site-footer|page-hero|cta-band|proof-band|lead-form)\.dc\.html$ /components/$1.dc.html [L]
+# shared component partials, fetched client-side by name
+RewriteRule ^(site-header|site-footer|page-hero|cta-band|proof-band|lead-form)\.html$ /components/$1.html [L]
 
 # homepage
-RewriteRule ^$ /pages/home.dc.html [L]
+RewriteRule ^$ /pages/home.html [L]
 
 # service sub-pages
-RewriteRule ^(managed-it|cloud-microsoft-365|cybersecurity|it-consulting)/?$ /pages/services/$1.dc.html [L]
+RewriteRule ^(managed-it|cloud-microsoft-365|cybersecurity|it-consulting)/?$ /pages/services/$1.html [L]
 
 # industry sub-pages
-RewriteRule ^(accounting-it-support|legal-it-support|professional-services-it)/?$ /pages/industries/$1.dc.html [L]
+RewriteRule ^(accounting-it-support|legal-it-support|professional-services-it)/?$ /pages/industries/$1.html [L]
 
 # location sub-pages
-RewriteRule ^(it-support-(vancouver|burnaby|surrey|coquitlam|langley|chilliwack|white-rock|delta))/?$ /pages/locations/$1.dc.html [L]
+RewriteRule ^(it-support-(vancouver|burnaby|surrey|coquitlam|langley|chilliwack|white-rock|delta))/?$ /pages/locations/$1.html [L]
 
 # top-level pages
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-z0-9-]+)/?$ /pages/$1.dc.html [L]
+RewriteRule ^([a-z0-9-]+)/?$ /pages/$1.html [L]
