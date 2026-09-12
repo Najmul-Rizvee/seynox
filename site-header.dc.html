@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/scripts/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"></link>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="_ds/modernist-7340adb2-a9c4-48a3-a3be-48505904d71a/styles.css">
+<script src="_ds/modernist-7340adb2-a9c4-48a3-a3be-48505904d71a/_ds_bundle.js"></script>
+<style>
+:root{--accent:#F5821F;--accent-ink:#B45A0C;--navy:#14193B;--ink:#14193B;--soft:rgba(20,25,59,.68);--paper:#FAFAF8;--rule:rgba(20,25,59,.24);--hair:rgba(20,25,59,.11);}
+html{scroll-behavior:smooth;background:var(--paper);}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:var(--ink);text-underline-offset:4px;}
+a:hover{color:var(--accent-ink);}
+::selection{background:rgba(245,130,31,.3);}
+[data-mob-btn]{display:none;}
+@media (max-width:1100px){[data-desk-nav]{gap:14px!important;font-size:10px!important;}}
+@media (max-width:960px){[data-desk-nav]{display:none!important;}[data-mob-btn]{display:inline-flex!important;}}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:60;background:rgba(250,250,248,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);">
+  <div data-bar="" style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px clamp(18px,4vw,64px);transition:padding .28s ease;">
+    <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:11px;flex-shrink:0;">
+      <x-import component-from-global-scope="seynox-logo" from="/scripts/seynox-logo.js" size="40" hint-size="40px,40px" style="width:40px;height:40px;flex:none;"></x-import>
+      <span style="display:flex;align-items:baseline;gap:10px;">
+        <span style="font-weight:800;font-size:18px;letter-spacing:.02em;">SEYNOX</span>
+        <span data-brandsub="" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);transition:opacity .28s ease,transform .28s ease;">IT Solutions</span>
+      </span>
+    </a>
+    <nav data-desk-nav="" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,30px);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;">
+      <a data-key="services" href="/services" style="text-decoration:none;color:var(--soft);padding-bottom:3px;border-bottom:2px solid transparent;transition:color .25s ease,border-color .25s ease;" style-hover="color:#14193B;">What we do</a>
+      <a data-key="locations" href="/locations" style="text-decoration:none;color:var(--soft);padding-bottom:3px;border-bottom:2px solid transparent;transition:color .25s ease,border-color .25s ease;" style-hover="color:#14193B;">Locations</a>
+      <a data-key="industries" href="/industries" style="text-decoration:none;color:var(--soft);padding-bottom:3px;border-bottom:2px solid transparent;transition:color .25s ease,border-color .25s ease;" style-hover="color:#14193B;">Industries</a>
+      <a data-key="handover" href="/handover-pack" style="text-decoration:none;color:var(--soft);padding-bottom:3px;border-bottom:2px solid transparent;transition:color .25s ease,border-color .25s ease;" style-hover="color:#14193B;">Handover Pack</a>
+      <a data-key="pricing" href="/pricing" style="text-decoration:none;color:var(--soft);padding-bottom:3px;border-bottom:2px solid transparent;transition:color .25s ease,border-color .25s ease;" style-hover="color:#14193B;">Pricing</a>
+      <a data-key="about" href="/about" style="text-decoration:none;color:var(--soft);padding-bottom:3px;border-bottom:2px solid transparent;transition:color .25s ease,border-color .25s ease;" style-hover="color:#14193B;">About</a>
+      <a data-key="contact" href="/contact" style="text-decoration:none;background:var(--accent);color:var(--navy);padding:11px 16px;font-weight:800;letter-spacing:.08em;transition:background .2s ease;" style-hover="background:#ffa04a;color:#14193B;">Book a call</a>
+    </nav>
+    <button data-mob-btn="" type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="display:none;align-items:center;gap:9px;background:transparent;border:1px solid var(--rule);color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;cursor:pointer;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+      Menu
+    </button>
+  </div>
+  <div data-mobile-nav="" style="display:none;border-top:1px solid var(--hair);padding:4px clamp(18px,4vw,64px) 20px;">
+    <a href="/services" style="display:block;padding:14px 0;border-bottom:1px solid var(--hair);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">What we do</a>
+    <a href="/locations" style="display:block;padding:14px 0;border-bottom:1px solid var(--hair);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Locations</a>
+    <a href="/industries" style="display:block;padding:14px 0;border-bottom:1px solid var(--hair);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Industries</a>
+    <a href="/handover-pack" style="display:block;padding:14px 0;border-bottom:1px solid var(--hair);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Handover Pack</a>
+    <a href="/pricing" style="display:block;padding:14px 0;border-bottom:1px solid var(--hair);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Pricing</a>
+    <a href="/about" style="display:block;padding:14px 0;border-bottom:1px solid var(--hair);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">About</a>
+    <a href="/field-notes" style="display:block;padding:14px 0;border-bottom:1px solid var(--hair);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Field Notes</a>
+    <a href="/faq" style="display:block;padding:14px 0;border-bottom:1px solid var(--hair);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">FAQ</a>
+    <a href="/contact" style="display:block;margin-top:16px;background:var(--accent);color:var(--navy);padding:15px 18px;text-decoration:none;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;">Book a 20-minute call</a>
+  </div>
+  <div data-progress="" style="height:2px;width:0%;background:var(--accent);position:absolute;bottom:-1px;left:0;"></div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;&quot;,&quot;services&quot;,&quot;locations&quot;,&quot;industries&quot;,&quot;handover&quot;,&quot;pricing&quot;,&quot;about&quot;,&quot;notes&quot;,&quot;faq&quot;,&quot;contact&quot;]}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.mark(); this.bindScroll();
+    this._esc = (e) => {
+      if (e.key !== 'Escape') return;
+      const p = document.querySelector('[data-mobile-nav]');
+      if (p) p.style.display = 'none';
+    };
+    window.addEventListener('keydown', this._esc);
+  }
+  componentDidUpdate() { this.mark(); }
+  mark() {
+    const key = this.props.active;
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const on = el.getAttribute('data-key') === key;
+      if (el.getAttribute('data-key') === 'contact') return;
+      el.style.borderBottomColor = on ? 'var(--accent)' : 'transparent';
+      el.style.color = on ? '#14193B' : 'var(--soft)';
+    });
+  }
+  bindScroll() {
+    this._onScroll = () => {
+      const b = document.querySelector('[data-progress]');
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      if (b) b.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+      const bar = document.querySelector('[data-bar]');
+      const brand = document.querySelector('[data-brandsub]');
+      const compact = window.scrollY > 40;
+      if (bar) bar.style.padding = compact ? '8px clamp(18px,4vw,64px)' : '12px clamp(18px,4vw,64px)';
+      if (brand) { brand.style.opacity = compact ? '0' : '1'; brand.style.transform = compact ? 'translateY(-4px)' : 'translateY(0)'; }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._esc) window.removeEventListener('keydown', this._esc);
+  }
+  renderVals() {
+    return {
+      toggleMenu: () => {
+        const p = document.querySelector('[data-mobile-nav]');
+        if (p) p.style.display = p.style.display === 'block' ? 'none' : 'block';
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
