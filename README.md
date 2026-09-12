@@ -104,6 +104,29 @@ to `components/site-header.html`. Component names must stay in sync with
 their filename (case-sensitive) in both the `dc-import` tag and the
 `.htaccess` component rule.
 
+## Static assets are cached for 7 days at the edge (important)
+
+Hostinger's CDN serves `styles/tokens.css`, `scripts/*.js`, images, etc. with
+`Cache-Control: public, max-age=604800`, and it does **not** purge on deploy.
+Editing one of these files and pushing is not enough — visitors (and the CDN
+itself) can keep serving the old version for up to a week.
+
+When you change any file under `styles/` or `scripts/`, bump the version query
+string on every reference to it (e.g. `tokens.css?v=2` -> `?v=3`):
+
+```
+grep -rl 'tokens.css?v=2' pages components | xargs sed -i '' 's/tokens.css?v=2/tokens.css?v=3/'
+```
+
+Also note: `.htaccess` is **not** overwritten by Hostinger's git auto-deploy on
+repeat deploys (it's left alone to protect manual server-side rules). If you
+change `.htaccess`, you must also push it directly:
+
+```
+cat .htaccess | ssh -p 65002 -i ~/.ssh/hostinger_seynox u734557115@191.101.13.47 \
+  "cat > domains/seynox.com/public_html/.htaccess"
+```
+
 ## Domain
 
 Site domain is `seynox.com`. Email addresses still use `@seynox.ca`
