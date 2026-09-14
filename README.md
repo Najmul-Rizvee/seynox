@@ -60,7 +60,6 @@ scripts/             Vanilla JS, loaded by every page
 styles/tokens.css    Design system: brand colors, fonts, base resets. Linked
                      from every page/component — the single source of truth.
 uploads/             Images referenced by pages
-archive/             Unused draft pages + old exports, kept for reference only
 .htaccess            Clean-URL rewrite rules (see below)
 favicon.svg           Generated from the same shape math as scripts/seynox-logo.js
 sitemap.xml, robots.txt
