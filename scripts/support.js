@@ -196,6 +196,13 @@
     if (ReactDOM.createRoot)
       ReactDOM.createRoot(hostEl).render(h(StandaloneRoot));
     else ReactDOM.render(h(StandaloneRoot), hostEl);
+    if (location.hash) {
+      const id = decodeURIComponent(location.hash.slice(1));
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const el = doc.getElementById(id);
+        if (el) el.scrollIntoView();
+      }));
+    }
     return rootName;
   }
 
