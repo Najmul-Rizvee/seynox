@@ -35,10 +35,10 @@
     scene.add(group);
 
     // --- nodes: evenly distributed over a unit sphere --------------------
-    var numNodes = 120;
+    var numNodes = 46;
     var nodes = [];
     var nodeGeo = new THREE.SphereGeometry(1, 16, 16);
-    var accentIdx = { 12: true, 67: true };
+    var accentIdx = { 5: true, 27: true };
 
     for (var i = 0; i < numNodes; i++) {
       var phi = Math.acos(-1 + (2 * i) / numNodes);
@@ -54,7 +54,7 @@
       );
       mesh.position.set(x, y, z);
       mesh.userData = {
-        baseSize: (isAccent ? 1.3 : Math.random() * 1.5 + 1.0),
+        baseSize: (isAccent ? 0.85 : Math.random() * 0.55 + 0.35),
         pulseSpeed: Math.random() * 0.02 + 0.015,
         pulseOffset: Math.random() * Math.PI * 2,
         isAccent: isAccent
@@ -68,7 +68,7 @@
     for (var a = 0; a < numNodes; a++) {
       for (var b = a + 1; b < numNodes; b++) {
         var dist = nodes[a].position.distanceTo(nodes[b].position);
-        var threshold = 0.45;
+        var threshold = 0.95;
         if (dist < threshold) {
           linePos.push(nodes[a].position.x, nodes[a].position.y, nodes[a].position.z);
           linePos.push(nodes[b].position.x, nodes[b].position.y, nodes[b].position.z);
@@ -96,7 +96,7 @@
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
 
-      var R = Math.min(w, h) * 0.46;
+      var R = Math.min(w, h) * 0.62;
       group.scale.set(R, R, R);
       group.position.set(0, 0, 0);
     }
@@ -121,7 +121,7 @@
           var p = mesh.userData;
           var pulse = (Math.sin((tFrames * p.pulseSpeed) + p.pulseOffset) + 1) / 2;
 
-          var targetRadius = p.baseSize + pulse * 1.8;
+          var targetRadius = p.baseSize + pulse * 0.7;
           var scale = targetRadius / group.scale.x;
 
           mesh.scale.set(scale, scale, scale);
