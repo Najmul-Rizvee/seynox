@@ -5,13 +5,14 @@
   function init() {
     var container = document.getElementById('hero-3d-canvas');
     if (!container || !window.THREE || container.__heroInit) return;
+
+    var width = container.clientWidth, height = container.clientHeight;
+    if (!width || !height) return; // not laid out yet — a later retry will pick it up
     container.__heroInit = true;
 
     var NAVY = new THREE.Color(0x14193B);
     var ORANGE = new THREE.Color(0xF5821F);
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    var width = container.clientWidth, height = container.clientHeight;
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
     camera.position.set(0, 0, 9);
@@ -166,7 +167,12 @@
   } else {
     init();
   }
-  // dc pages can re-render; retry shortly in case the canvas mounts late
-  setTimeout(init, 300);
-  setTimeout(init, 1000);
+  window.addEventListener('load', init);
+  // container may report 0x0 until layout/fonts settle - poll briefly until it works
+  var tries = 0;
+  var poll = setInterval(function () {
+    var c = document.getElementById('hero-3d-canvas');
+    if ((c && c.__heroInit) || ++tries > 20) { clearInterval(poll); return; }
+    init();
+  }, 200);
 })();
