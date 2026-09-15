@@ -12,7 +12,7 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="/styles/tokens.css?v=3">
+<link rel="stylesheet" href="/styles/tokens.css?v=4">
 <title>Managed IT Services Surrey &amp; Metro Vancouver | Seynox IT</title>
 <meta name="description" content="Documented, fully-owned IT for growing teams in Metro Vancouver. Named ownership, visible systems, work that transfers — not just tickets closed."></meta>
 <meta name="robots" content="index, follow"></meta>
@@ -27,16 +27,13 @@
 a:hover{color:#B45A0C;}
 [data-gridlayer]{opacity:1;}
 [data-glow]{opacity:.9;}
-[data-tick]{position:absolute;width:9px;height:9px;border-color:rgba(20,25,59,.3);border-style:solid;transition:border-color .25s ease;}
-[data-card]:hover [data-tick]{border-color:var(--accent);}
-[data-card]{transition:background .25s ease,border-color .25s ease;}
-[data-card]:hover{background:var(--surface);}
-[data-card]:hover [data-arrow]{transform:translateX(8px);color:#B45A0C;}
-[data-card]:hover [data-num]{color:#B45A0C;}
+[data-card]{transition:transform .18s ease,box-shadow .18s ease;}
+[data-card]:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--navy);}
+[data-card]:hover [data-arrow]{transform:translateX(8px);}
 summary::-webkit-details-marker{display:none;}
 summary{list-style:none;}
 details[open] [data-plus]{transform:rotate(45deg);}
-a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
 [data-anchorbar] a{white-space:nowrap;}
 @keyframes sxPulseDot{0%,100%{opacity:1;}50%{opacity:.35;}}
 [data-stepdot]{animation:sxPulseDot 2.6s ease-in-out infinite;}
@@ -47,18 +44,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   [data-desknav]{display:none!important;}
   [data-3],[data-2]{grid-template-columns:minmax(0,1fr)!important;}
   [data-4]{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-  [data-4]>div{padding:14px 16px!important;border-right:1px solid var(--hair)!important;border-bottom:1px solid var(--hair)!important;}
-  [data-4]>div:nth-child(2n){border-right:0!important;}
+  [data-4]>a{padding:20px!important;}
   #hero-3d-canvas{display:none!important;}
   [data-cmprow]{grid-template-columns:minmax(0,1fr)!important;gap:6px!important;}
   [data-cmphead]{display:none!important;}
   [data-anchorbar]{display:none!important;}
   [data-progression]{grid-template-columns:minmax(0,1fr)!important;}
   [data-progression]>[aria-hidden]{display:none!important;}
+  [data-bignum]{font-size:56px!important;}
 }
 @media (max-width:560px){
   [data-4]{grid-template-columns:minmax(0,1fr)!important;}
-  [data-4]>div{border-right:0!important;}
 }
 </style>
 </helmet>
@@ -74,21 +70,21 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   <dc-import name="site-header" active="" hint-size="100%,64px"></dc-import>
 
   <main id="top">
-  <section style="position:relative;overflow:hidden;background:var(--navy);">
+  <section style="position:relative;overflow:hidden;background:var(--navy);border-bottom:4px solid var(--navy);">
     <div id="hero-3d-canvas" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;"></div>
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 70% at 82% 18%,rgba(245,130,31,.16) 0%,rgba(245,130,31,0) 60%);"></div>
-    <div style="position:relative;padding:clamp(72px,11vw,168px) clamp(18px,4vw,64px) clamp(64px,9vw,120px);max-width:1500px;">
+    <div style="position:relative;padding:clamp(64px,10vw,140px) clamp(18px,4vw,64px) clamp(56px,8vw,110px);max-width:1600px;">
       <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,248,.65);">
         <span aria-hidden="true" style="width:26px;height:2px;background:var(--accent);"></span>
         Surrey · Vancouver · Burnaby · Coquitlam · Langley · Delta
       </div>
-      <h1 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(18px,2.6vw,36px) 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,6.4vw,104px);line-height:1;letter-spacing:-.02em;max-width:min(100%,16ch);text-wrap:balance;color:var(--paper);">IT without <em style="font-style:italic;color:var(--accent);">the fog.</em></h1>
-      <div data-herocopy="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(20px,3vw,52px);margin-top:clamp(26px,3.2vw,44px);max-width:min(100%,64%);">
+      <h1 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(16px,2.2vw,28px) 0 0;font-family:var(--display);font-weight:400;font-size:clamp(52px,9.4vw,168px);line-height:.88;letter-spacing:-.03em;max-width:min(100%,13ch);text-wrap:balance;color:var(--paper);">IT WITHOUT <span style="color:var(--accent);">THE FOG.</span></h1>
+      <div data-herocopy="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(20px,3vw,52px);margin-top:clamp(28px,3.6vw,52px);max-width:min(100%,64%);">
         <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:0;font-size:clamp(16px,1.35vw,20px);line-height:1.55;color:rgba(250,250,248,.8);">Know what runs your business — who owns it, what it costs to lose, and how to hand it off without starting from zero.</p>
-        <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:0;font-size:13px;line-height:1.6;color:rgba(250,250,248,.65);border-left:2px solid var(--accent);padding-left:clamp(14px,1.6vw,22px);">For growing teams tired of reactive fixes, unclear ownership, and systems only one person understands.</p>
+        <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:0;font-size:13px;line-height:1.6;color:rgba(250,250,248,.65);border-left:3px solid var(--accent);padding-left:clamp(14px,1.6vw,22px);">For growing teams tired of reactive fixes, unclear ownership, and systems only one person understands.</p>
       </div>
-      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;align-items:center;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap;margin-top:clamp(28px,3.6vw,52px);">
-        <a href="/contact" style="text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;transition:background .25s ease;box-shadow:0 10px 34px rgba(245,130,31,.4);" style-hover="background:#ffa04a;color:#14193B;">
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;align-items:center;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap;margin-top:clamp(32px,4vw,56px);">
+        <a href="/contact" style="text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;border:3px solid var(--paper);box-shadow:7px 7px 0 var(--paper);transition:transform .15s ease,box-shadow .15s ease;" style-hover="transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--paper);">
           Book a 20-minute call
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
@@ -97,10 +93,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     </div>
   </section>
 
-  <div data-4="" data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--hair);padding:0 clamp(18px,4vw,64px);font-family:'JetBrains Mono',monospace;">
-    <div style="padding:16px 20px 16px 0;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);border-right:1px solid var(--hair);">Named engineer per client</div>
-    <div style="padding:16px 20px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);border-right:1px solid var(--hair);">30-minute written response</div>
-    <div style="padding:16px 20px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);border-right:1px solid var(--hair);">Month to month, no term</div>
+  <div data-4="" data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:3px solid var(--navy);padding:0 clamp(18px,4vw,64px);font-family:'JetBrains Mono',monospace;">
+    <div style="padding:16px 20px 16px 0;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);border-right:2px solid var(--hair);">Named engineer per client</div>
+    <div style="padding:16px 20px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);border-right:2px solid var(--hair);">30-minute written response</div>
+    <div style="padding:16px 20px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);border-right:2px solid var(--hair);">Month to month, no term</div>
     <div style="padding:16px 0 16px 20px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);">You own every credential</div>
   </div>
 
@@ -112,13 +108,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     <a href="#faq" style="text-decoration:none;color:var(--soft);">FAQ</a>
   </nav>
 
-  <section id="the-problem" style="scroll-margin-top:80px;position:relative;overflow:hidden;background:var(--navy);color:var(--paper);padding:clamp(64px,10vw,140px) clamp(18px,4vw,64px);">
+  <section id="the-problem" style="scroll-margin-top:80px;position:relative;overflow:hidden;background:var(--navy);color:var(--paper);padding:clamp(64px,10vw,140px) clamp(18px,4vw,64px);border-bottom:4px solid var(--navy);">
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(0deg,rgba(250,250,248,.06) 0 1px,transparent 1px 72px),repeating-linear-gradient(90deg,rgba(250,250,248,.06) 0 1px,transparent 1px 72px);"></div>
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 90% at 85% 0%,rgba(245,130,31,.22) 0%,rgba(245,130,31,0) 60%);"></div>
-    <div style="position:relative;max-width:65ch;margin:0 auto;text-align:center;">
+    <div style="position:relative;max-width:70ch;margin:0 auto;text-align:center;">
       <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);">The problem</div>
-      <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(16px,2vw,24px) 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,54px);line-height:1.1;letter-spacing:-.015em;">Your IT runs on one person's memory.</h2>
-      <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(24px,3vw,38px) 0 0;font-size:clamp(16px,1.4vw,19px);line-height:1.65;color:rgba(250,250,248,.82);">Someone set it up years ago. They know which cable goes where, what the admin password is, whose name the Microsoft licences are actually under. None of it is written down — it never needed to be, because they were always reachable.</p>
+      <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(16px,2vw,24px) 0 0;font-family:var(--display);font-weight:400;font-size:clamp(32px,5.4vw,74px);line-height:.98;letter-spacing:-.02em;">YOUR IT RUNS ON<br>ONE PERSON'S MEMORY.</h2>
+      <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(28px,3.4vw,44px) 0 0;font-size:clamp(16px,1.4vw,19px);line-height:1.65;color:rgba(250,250,248,.82);">Someone set it up years ago. They know which cable goes where, what the admin password is, whose name the Microsoft licences are actually under. None of it is written down — it never needed to be, because they were always reachable.</p>
       <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(18px,2.2vw,26px) 0 0;font-size:clamp(16px,1.4vw,19px);line-height:1.65;color:rgba(250,250,248,.82);">Then they take a holiday. Or move on. Or stop returning calls.</p>
       <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(18px,2.2vw,26px) 0 0;font-size:clamp(16px,1.4vw,19px);line-height:1.65;color:rgba(250,250,248,.82);">Nothing has broken. But the business that runs on client files, email, and one accounting system now has nobody who can explain how any of it works.</p>
       <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(28px,3.4vw,44px) 0 0;font-size:13px;letter-spacing:.02em;color:rgba(250,250,248,.55);">Most firms don't discover this until the day they need to.</p>
@@ -126,108 +122,108 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   </section>
 
   <section id="self-check" style="padding:clamp(56px,9vw,130px) clamp(18px,4vw,64px);">
-    <div style="max-width:640px;">
+    <div style="max-width:680px;">
       <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);">A quick check</div>
-      <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(14px,1.8vw,20px) 0 0;font-weight:800;font-size:clamp(24px,2.8vw,38px);letter-spacing:-.025em;">Four questions worth answering honestly.</h2>
-      <ol style="list-style:none;margin:clamp(28px,3.4vw,44px) 0 0;padding:0;border-top:2px solid var(--rule);">
-        <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,2.6vw,28px);align-items:baseline;padding:clamp(18px,2.2vw,28px) 0;border-bottom:1px solid var(--hair);">
-          <span aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent-ink);min-width:2.4ch;">01</span>
-          <span style="font-size:clamp(16px,1.4vw,19px);line-height:1.5;">If your IT person stopped answering today, could someone else log in by Monday?</span>
+      <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(14px,1.8vw,20px) 0 0;font-family:var(--display);font-weight:400;font-size:clamp(28px,4.4vw,54px);line-height:.98;letter-spacing:-.02em;">FOUR QUESTIONS WORTH ANSWERING HONESTLY.</h2>
+      <ol style="list-style:none;margin:clamp(32px,4vw,50px) 0 0;padding:0;border-top:4px solid var(--navy);">
+        <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,2.6vw,28px);align-items:baseline;padding:clamp(20px,2.6vw,32px) 0;border-bottom:2px solid var(--hair);">
+          <span aria-hidden="true" style="font-family:var(--display);font-size:clamp(24px,2.8vw,34px);color:var(--accent);min-width:1.6ch;">01</span>
+          <span style="font-size:clamp(17px,1.5vw,21px);line-height:1.4;font-weight:600;">If your IT person stopped answering today, could someone else log in by Monday?</span>
         </li>
-        <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,2.6vw,28px);align-items:baseline;padding:clamp(18px,2.2vw,28px) 0;border-bottom:1px solid var(--hair);">
-          <span aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent-ink);min-width:2.4ch;">02</span>
-          <span style="font-size:clamp(16px,1.4vw,19px);line-height:1.5;">Is your Microsoft 365 tenant registered to your name — or a contractor's?</span>
+        <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,2.6vw,28px);align-items:baseline;padding:clamp(20px,2.6vw,32px) 0;border-bottom:2px solid var(--hair);">
+          <span aria-hidden="true" style="font-family:var(--display);font-size:clamp(24px,2.8vw,34px);color:var(--accent);min-width:1.6ch;">02</span>
+          <span style="font-size:clamp(17px,1.5vw,21px);line-height:1.4;font-weight:600;">Is your Microsoft 365 tenant registered to your name — or a contractor's?</span>
         </li>
-        <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,2.6vw,28px);align-items:baseline;padding:clamp(18px,2.2vw,28px) 0;border-bottom:1px solid var(--hair);">
-          <span aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent-ink);min-width:2.4ch;">03</span>
-          <span style="font-size:clamp(16px,1.4vw,19px);line-height:1.5;">When was a backup last actually restored, not just reported as successful?</span>
+        <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,2.6vw,28px);align-items:baseline;padding:clamp(20px,2.6vw,32px) 0;border-bottom:2px solid var(--hair);">
+          <span aria-hidden="true" style="font-family:var(--display);font-size:clamp(24px,2.8vw,34px);color:var(--accent);min-width:1.6ch;">03</span>
+          <span style="font-size:clamp(17px,1.5vw,21px);line-height:1.4;font-weight:600;">When was a backup last actually restored, not just reported as successful?</span>
         </li>
-        <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,2.6vw,28px);align-items:baseline;padding:clamp(18px,2.2vw,28px) 0;border-bottom:1px solid var(--hair);">
-          <span aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent-ink);min-width:2.4ch;">04</span>
-          <span style="font-size:clamp(16px,1.4vw,19px);line-height:1.5;">Could you produce a list of who has access to client files, if asked?</span>
+        <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,2.6vw,28px);align-items:baseline;padding:clamp(20px,2.6vw,32px) 0;border-bottom:2px solid var(--hair);">
+          <span aria-hidden="true" style="font-family:var(--display);font-size:clamp(24px,2.8vw,34px);color:var(--accent);min-width:1.6ch;">04</span>
+          <span style="font-size:clamp(17px,1.5vw,21px);line-height:1.4;font-weight:600;">Could you produce a list of who has access to client files, if asked?</span>
         </li>
       </ol>
       <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(24px,3vw,36px) 0 0;font-size:clamp(15px,1.2vw,17px);line-height:1.6;color:var(--soft);">If you hesitated on any of these, that's the gap we close.</p>
     </div>
   </section>
 
-  <section id="our-view" style="scroll-margin-top:80px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--surface);padding:clamp(56px,9vw,130px) clamp(18px,4vw,64px);">
+  <section id="our-view" style="scroll-margin-top:80px;border-top:4px solid var(--navy);border-bottom:4px solid var(--navy);background:var(--surface);padding:clamp(56px,9vw,130px) clamp(18px,4vw,64px);">
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);">Our view</div>
-    <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:14px 0 0;font-weight:800;font-size:clamp(24px,3vw,42px);letter-spacing:-.025em;max-width:22ch;line-height:1.15;">Good IT isn't a pile of tools. It's the shared understanding that lets a business make its next move.</h2>
-    <div data-3="" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,40px);margin-top:clamp(36px,4.4vw,60px);">
-      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-left:2px solid var(--accent);padding-left:clamp(18px,2.2vw,26px);">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent-ink);">01</div>
-        <h3 style="margin:10px 0 0;font-weight:800;font-size:clamp(17px,1.5vw,21px);letter-spacing:-.015em;">Visible before it's urgent</h3>
+    <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:14px 0 0;font-family:var(--display);font-weight:400;font-size:clamp(28px,4.4vw,56px);line-height:.98;letter-spacing:-.02em;max-width:19ch;">GOOD IT ISN'T A PILE OF TOOLS. IT'S THE SHARED UNDERSTANDING THAT LETS A BUSINESS MAKE ITS NEXT MOVE.</h2>
+    <div data-3="" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:clamp(40px,5vw,64px);border-top:3px solid var(--navy);">
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-right:3px solid var(--navy);padding:clamp(22px,2.6vw,32px) clamp(20px,2.2vw,28px) 0 0;">
+        <div data-bignum="" style="font-family:var(--display);font-size:clamp(40px,4.4vw,64px);line-height:1;color:var(--accent);">01</div>
+        <h3 style="margin:14px 0 0;font-weight:800;font-size:clamp(17px,1.5vw,21px);letter-spacing:-.015em;">Visible before it's urgent</h3>
         <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:var(--soft);">Know what exists, who owns it, and what deserves attention — before it turns into a late night.</p>
       </div>
-      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-left:2px solid var(--accent);padding-left:clamp(18px,2.2vw,26px);">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent-ink);">02</div>
-        <h3 style="margin:10px 0 0;font-weight:800;font-size:clamp(17px,1.5vw,21px);letter-spacing:-.015em;">Built for the people using it</h3>
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-right:3px solid var(--navy);padding:clamp(22px,2.6vw,32px) clamp(20px,2.2vw,28px) 0 clamp(20px,2.2vw,28px);">
+        <div data-bignum="" style="font-family:var(--display);font-size:clamp(40px,4.4vw,64px);line-height:1;color:var(--accent);">02</div>
+        <h3 style="margin:14px 0 0;font-weight:800;font-size:clamp(17px,1.5vw,21px);letter-spacing:-.015em;">Built for the people using it</h3>
         <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:var(--soft);">Controls and support that respect the pace and shape of your actual business, not a generic bundle.</p>
       </div>
-      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-left:2px solid var(--accent);padding-left:clamp(18px,2.2vw,26px);">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent-ink);">03</div>
-        <h3 style="margin:10px 0 0;font-weight:800;font-size:clamp(17px,1.5vw,21px);letter-spacing:-.015em;">Transferable by design</h3>
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);padding:clamp(22px,2.6vw,32px) 0 0 clamp(20px,2.2vw,28px);">
+        <div data-bignum="" style="font-family:var(--display);font-size:clamp(40px,4.4vw,64px);line-height:1;color:var(--accent);">03</div>
+        <h3 style="margin:14px 0 0;font-weight:800;font-size:clamp(17px,1.5vw,21px);letter-spacing:-.015em;">Transferable by design</h3>
         <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:var(--soft);">Every engagement leaves a useful record. Your business never has to rent back its own knowledge.</p>
       </div>
     </div>
   </section>
 
   <section data-sec="" id="what-we-do" style="scroll-margin-top:80px;padding:clamp(56px,9vw,130px) clamp(18px,4vw,64px);">
-    <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin-bottom:clamp(20px,2.6vw,36px);">
+    <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin-bottom:clamp(24px,3vw,40px);">
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);">What we do</div>
-      <h2 style="margin:14px 0 0;font-weight:800;font-size:clamp(24px,2.8vw,38px);letter-spacing:-.025em;max-width:22ch;">A sharper operating layer, wherever the pressure is.</h2>
-      <p style="margin:16px 0 0;font-size:clamp(15px,1.25vw,18px);line-height:1.55;color:var(--soft);max-width:62ch;">Start with whatever's hardest to own right now. Everything we build leaves your team with a record they can run without us.</p>
+      <h2 style="margin:14px 0 0;font-family:var(--display);font-weight:400;font-size:clamp(28px,4.4vw,54px);line-height:.98;letter-spacing:-.02em;max-width:16ch;">A SHARPER OPERATING LAYER, WHEREVER THE PRESSURE IS.</h2>
+      <p style="margin:18px 0 0;font-size:clamp(15px,1.25vw,18px);line-height:1.55;color:var(--soft);max-width:62ch;">Start with whatever's hardest to own right now. Everything we build leaves your team with a record they can run without us.</p>
     </div>
-    <div data-4="" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);">
-      <a data-card="" data-reveal="" href="/managed-it" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),background .25s ease;text-decoration:none;background:var(--paper);display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);min-height:220px;padding:clamp(20px,2.2vw,30px);border:0;border-top:3px solid var(--accent);position:relative;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:var(--soft);">MANAGED IT</div>
-        <h3 style="margin-top:auto;font-weight:800;font-size:clamp(16px,1.3vw,19px);letter-spacing:-.015em;line-height:1.35;">A documented, client-owned operating layer for every device, user, system, and decision.</h3>
-        <div data-arrow="" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-block;transition:transform .25s ease,color .25s ease;">Explore Managed IT →</div>
+    <div data-4="" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:3px solid var(--navy);">
+      <a data-card="" data-reveal="" href="/managed-it" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),transform .18s ease,box-shadow .18s ease;text-decoration:none;background:var(--paper);display:flex;flex-direction:column;gap:clamp(24px,2.6vw,32px);min-height:260px;padding:clamp(24px,2.4vw,32px);border-right:3px solid var(--navy);position:relative;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:var(--soft);">01 / MANAGED IT</div>
+        <h3 style="margin-top:auto;font-weight:800;font-size:clamp(17px,1.4vw,20px);letter-spacing:-.015em;line-height:1.3;color:var(--ink);">A documented, client-owned operating layer for every device, user, system, and decision.</h3>
+        <div data-arrow="" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-block;transition:transform .25s ease;">Explore Managed IT →</div>
       </a>
-      <a data-card="" data-reveal="" href="/cloud-microsoft-365" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),background .25s ease;text-decoration:none;background:var(--paper);display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);min-height:220px;padding:clamp(20px,2.2vw,30px);border:0;border-top:3px solid var(--accent);position:relative;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:var(--soft);">CLOUD + MICROSOFT 365</div>
-        <h3 style="margin-top:auto;font-weight:800;font-size:clamp(16px,1.3vw,19px);letter-spacing:-.015em;line-height:1.35;">A documented, client-owned Microsoft 365 environment — easier to govern, safer to use, ready to hand over.</h3>
-        <div data-arrow="" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-block;transition:transform .25s ease,color .25s ease;">Explore Cloud + M365 →</div>
+      <a data-card="" data-reveal="" href="/cloud-microsoft-365" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),transform .18s ease,box-shadow .18s ease;text-decoration:none;background:var(--surface);display:flex;flex-direction:column;gap:clamp(24px,2.6vw,32px);min-height:260px;padding:clamp(24px,2.4vw,32px);border-right:3px solid var(--navy);position:relative;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:var(--soft);">02 / CLOUD + M365</div>
+        <h3 style="margin-top:auto;font-weight:800;font-size:clamp(17px,1.4vw,20px);letter-spacing:-.015em;line-height:1.3;color:var(--ink);">A documented, client-owned Microsoft 365 environment — easier to govern, safer to use, ready to hand over.</h3>
+        <div data-arrow="" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-block;transition:transform .25s ease;">Explore Cloud + M365 →</div>
       </a>
-      <a data-card="" data-reveal="" href="/cybersecurity" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),background .25s ease;text-decoration:none;background:var(--paper);display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);min-height:220px;padding:clamp(20px,2.2vw,30px);border:0;border-top:3px solid var(--accent);position:relative;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:var(--soft);">CYBERSECURITY</div>
-        <h3 style="margin-top:auto;font-weight:800;font-size:clamp(16px,1.3vw,19px);letter-spacing:-.015em;line-height:1.35;">A documented, client-owned security baseline that turns vague exposure into prioritized, defensible action.</h3>
-        <div data-arrow="" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-block;transition:transform .25s ease,color .25s ease;">Explore Cybersecurity →</div>
+      <a data-card="" data-reveal="" href="/cybersecurity" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),transform .18s ease,box-shadow .18s ease;text-decoration:none;background:var(--navy);color:var(--paper);display:flex;flex-direction:column;gap:clamp(24px,2.6vw,32px);min-height:260px;padding:clamp(24px,2.4vw,32px);border-right:3px solid var(--navy);position:relative;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(250,250,248,.6);">03 / CYBERSECURITY</div>
+        <h3 style="margin-top:auto;font-weight:800;font-size:clamp(17px,1.4vw,20px);letter-spacing:-.015em;line-height:1.3;color:var(--paper);">A documented, client-owned security baseline that turns vague exposure into prioritized, defensible action.</h3>
+        <div data-arrow="" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:inline-block;transition:transform .25s ease;">Explore Cybersecurity →</div>
       </a>
-      <a data-card="" data-reveal="" href="/it-consulting" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),background .25s ease;text-decoration:none;background:var(--paper);display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);min-height:220px;padding:clamp(20px,2.2vw,30px);border:0;border-top:3px solid var(--accent);position:relative;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:var(--soft);">IT CONSULTING</div>
-        <h3 style="margin-top:auto;font-weight:800;font-size:clamp(16px,1.3vw,19px);letter-spacing:-.015em;line-height:1.35;">Independent, documented advice that leaves your team with a decision, a plan, and the reasoning behind both.</h3>
-        <div data-arrow="" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-block;transition:transform .25s ease,color .25s ease;">Explore IT Consulting →</div>
+      <a data-card="" data-reveal="" href="/it-consulting" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),transform .18s ease,box-shadow .18s ease;text-decoration:none;background:var(--accent);display:flex;flex-direction:column;gap:clamp(24px,2.6vw,32px);min-height:260px;padding:clamp(24px,2.4vw,32px);position:relative;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(20,25,59,.65);">04 / IT CONSULTING</div>
+        <h3 style="margin-top:auto;font-weight:800;font-size:clamp(17px,1.4vw,20px);letter-spacing:-.015em;line-height:1.3;color:var(--navy);">Independent, documented advice that leaves your team with a decision, a plan, and the reasoning behind both.</h3>
+        <div data-arrow="" aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);display:inline-block;transition:transform .25s ease;">Explore IT Consulting →</div>
       </a>
     </div>
     <a data-reveal="" href="/services" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:inline-block;margin-top:clamp(20px,2.4vw,30px);font-size:14px;text-decoration:underline;">See what's included in each →</a>
   </section>
 
-  <section id="progression" style="border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:clamp(56px,9vw,130px) clamp(18px,4vw,64px);overflow:hidden;">
+  <section id="progression" style="border-top:4px solid var(--navy);border-bottom:4px solid var(--navy);padding:clamp(56px,9vw,130px) clamp(18px,4vw,64px);overflow:hidden;">
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);">A useful progression</div>
-    <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:14px 0 0;font-weight:800;font-size:clamp(24px,2.8vw,38px);letter-spacing:-.025em;">From "who knows?" to "we own it."</h2>
-    <div data-progression="" data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,40px);margin-top:clamp(40px,5vw,64px);">
-      <div aria-hidden="true" style="position:absolute;top:6px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--rule) 0%,var(--accent) 50%,var(--navy) 100%);"></div>
-      <div>
-        <span data-stepdot="" aria-hidden="true" style="display:block;width:14px;height:14px;border-radius:50%;background:var(--rule);margin-bottom:18px;"></span>
+    <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:14px 0 0;font-family:var(--display);font-weight:400;font-size:clamp(28px,4.4vw,54px);line-height:.98;letter-spacing:-.02em;">FROM "WHO KNOWS?" TO "WE OWN IT."</h2>
+    <div data-progression="" data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:clamp(40px,5vw,64px);border-top:3px solid var(--navy);border-left:3px solid var(--navy);">
+      <div aria-hidden="true" style="position:absolute;top:-3px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--rule) 0%,var(--accent) 50%,var(--navy) 100%);"></div>
+      <div style="border-right:3px solid var(--navy);padding:clamp(24px,2.6vw,32px);">
+        <span data-stepdot="" aria-hidden="true" style="display:block;width:16px;height:16px;background:var(--rule);margin-bottom:18px;"></span>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--soft);">NOW — REACTIVE</div>
         <p style="margin:10px 0 0;font-size:15px;line-height:1.55;">The answer lives in a person, a thread, or a half-remembered setting.</p>
       </div>
-      <div>
-        <span data-stepdot="" aria-hidden="true" style="display:block;width:14px;height:14px;border-radius:50%;background:var(--accent);margin-bottom:18px;"></span>
+      <div style="border-right:3px solid var(--navy);padding:clamp(24px,2.6vw,32px);">
+        <span data-stepdot="" aria-hidden="true" style="display:block;width:16px;height:16px;background:var(--accent);margin-bottom:18px;"></span>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent-ink);">NEXT — VISIBLE</div>
         <p style="margin:10px 0 0;font-size:15px;line-height:1.55;">Systems, owners, risk, and next actions are legible to the people running the business.</p>
       </div>
-      <div>
-        <span data-stepdot="" aria-hidden="true" style="display:block;width:14px;height:14px;border-radius:50%;background:var(--navy);margin-bottom:18px;"></span>
+      <div style="padding:clamp(24px,2.6vw,32px);">
+        <span data-stepdot="" aria-hidden="true" style="display:block;width:16px;height:16px;background:var(--navy);margin-bottom:18px;"></span>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--navy);">THEN — TRANSFERABLE</div>
         <p style="margin:10px 0 0;font-size:15px;line-height:1.55;">The operating record stays useful through growth, change, and staff turnover.</p>
       </div>
     </div>
   </section>
 
-  <section id="handover" data-reveal="" style="scroll-margin-top:80px;opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);position:relative;overflow:hidden;background:var(--navy);color:var(--paper);padding:clamp(56px,9vw,130px) clamp(18px,4vw,64px);">
+  <section id="handover" data-reveal="" style="scroll-margin-top:80px;opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);position:relative;overflow:hidden;background:var(--navy);color:var(--paper);padding:clamp(56px,9vw,130px) clamp(18px,4vw,64px);border-bottom:4px solid var(--navy);">
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(90% 120% at 12% 0%,rgba(245,130,31,.32) 0%,rgba(245,130,31,0) 60%);"></div>
     <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,4vw,80px);align-items:end;max-width:1500px;">
       <div>
@@ -235,11 +231,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
           <span aria-hidden="true" style="width:26px;height:2px;background:var(--accent);"></span>
           The handover promise
         </div>
-        <h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,5vw,80px);line-height:1.04;letter-spacing:-.02em;">You should never need to call us to understand your own IT.</h2>
+        <h2 style="margin:0;font-family:var(--display);font-weight:400;font-size:clamp(30px,5vw,68px);line-height:.98;letter-spacing:-.02em;">YOU SHOULD NEVER NEED TO CALL US TO UNDERSTAND YOUR OWN IT.</h2>
       </div>
       <div>
         <p style="margin:0;font-size:clamp(15px,1.25vw,19px);line-height:1.55;color:rgba(250,250,248,.82);max-width:48ch;">Every engagement is built around a living handover pack — the decisions, diagrams, owners, access paths, and next actions that make your environment transferable. It's yours whether you keep working with us or not.</p>
-        <a href="/handover-pack" style="margin-top:clamp(24px,2.8vw,36px);text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;transition:background .25s ease;box-shadow:0 10px 30px rgba(245,130,31,.3);" style-hover="background:#ffa04a;color:#14193B;">
+        <a href="/handover-pack" style="margin-top:clamp(24px,2.8vw,36px);text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;border:3px solid var(--paper);box-shadow:7px 7px 0 var(--paper);transition:transform .15s ease,box-shadow .15s ease;" style-hover="transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--paper);">
           Book the Handover Pack
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
@@ -249,26 +245,26 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 
   <section data-sec="" id="process" style="padding:clamp(56px,9vw,140px) clamp(18px,4vw,64px);">
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);">How it works</div>
-    <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:14px 0 clamp(22px,3vw,44px);font-weight:800;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.025em;">Less theatre. Better decisions.</h2>
-    <ol style="list-style:none;margin:0;padding:0;border-top:2px solid var(--rule);">
-      <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,3vw,52px);align-items:baseline;padding:clamp(18px,2.4vw,32px) 0;border-bottom:1px solid var(--hair);">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(14px,1.2vw,18px);color:var(--accent-ink);min-width:3ch;">01</span>
-        <span style="font-size:clamp(16px,1.5vw,20px);line-height:1.4;"><strong style="font-weight:800;letter-spacing:-.01em;">Listen.</strong> <span style="color:var(--soft);">We start with the operational pressure, not a product catalogue.</span></span>
+    <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:14px 0 clamp(28px,3.6vw,48px);font-family:var(--display);font-weight:400;font-size:clamp(28px,4.4vw,54px);line-height:.98;letter-spacing:-.02em;">LESS THEATRE. BETTER DECISIONS.</h2>
+    <ol style="list-style:none;margin:0;padding:0;border-top:4px solid var(--navy);">
+      <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,3vw,52px);align-items:baseline;padding:clamp(20px,2.6vw,34px) 0;border-bottom:2px solid var(--hair);">
+        <span style="font-family:var(--display);font-size:clamp(24px,2.8vw,36px);color:var(--accent);min-width:2ch;">01</span>
+        <span style="font-size:clamp(17px,1.6vw,22px);line-height:1.4;"><strong style="font-weight:800;letter-spacing:-.01em;">Listen.</strong> <span style="color:var(--soft);">We start with the operational pressure, not a product catalogue.</span></span>
       </li>
-      <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,3vw,52px);align-items:baseline;padding:clamp(18px,2.4vw,32px) 0;border-bottom:1px solid var(--hair);">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(14px,1.2vw,18px);color:var(--accent-ink);min-width:3ch;">02</span>
-        <span style="font-size:clamp(16px,1.5vw,20px);line-height:1.4;"><strong style="font-weight:800;letter-spacing:-.01em;">Map.</strong> <span style="color:var(--soft);">We build a shared picture of systems, people, risk, and ownership.</span></span>
+      <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,3vw,52px);align-items:baseline;padding:clamp(20px,2.6vw,34px) 0;border-bottom:2px solid var(--hair);">
+        <span style="font-family:var(--display);font-size:clamp(24px,2.8vw,36px);color:var(--accent);min-width:2ch;">02</span>
+        <span style="font-size:clamp(17px,1.6vw,22px);line-height:1.4;"><strong style="font-weight:800;letter-spacing:-.01em;">Map.</strong> <span style="color:var(--soft);">We build a shared picture of systems, people, risk, and ownership.</span></span>
       </li>
-      <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,3vw,52px);align-items:baseline;padding:clamp(18px,2.4vw,32px) 0;border-bottom:1px solid var(--hair);">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(14px,1.2vw,18px);color:var(--accent-ink);min-width:3ch;">03</span>
-        <span style="font-size:clamp(16px,1.5vw,20px);line-height:1.4;"><strong style="font-weight:800;letter-spacing:-.01em;">Act.</strong> <span style="color:var(--soft);">We prioritize the changes that reduce friction and exposure first.</span></span>
+      <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,3vw,52px);align-items:baseline;padding:clamp(20px,2.6vw,34px) 0;border-bottom:2px solid var(--hair);">
+        <span style="font-family:var(--display);font-size:clamp(24px,2.8vw,36px);color:var(--accent);min-width:2ch;">03</span>
+        <span style="font-size:clamp(17px,1.6vw,22px);line-height:1.4;"><strong style="font-weight:800;letter-spacing:-.01em;">Act.</strong> <span style="color:var(--soft);">We prioritize the changes that reduce friction and exposure first.</span></span>
       </li>
-      <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,3vw,52px);align-items:baseline;padding:clamp(18px,2.4vw,32px) 0;border-bottom:1px solid var(--hair);">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(14px,1.2vw,18px);color:var(--accent-ink);min-width:3ch;">04</span>
-        <span style="font-size:clamp(16px,1.5vw,20px);line-height:1.4;"><strong style="font-weight:800;letter-spacing:-.01em;">Transfer.</strong> <span style="color:var(--soft);">We leave a current record so your team can run the next chapter.</span></span>
+      <li data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;gap:clamp(16px,3vw,52px);align-items:baseline;padding:clamp(20px,2.6vw,34px) 0;border-bottom:2px solid var(--hair);">
+        <span style="font-family:var(--display);font-size:clamp(24px,2.8vw,36px);color:var(--accent);min-width:2ch;">04</span>
+        <span style="font-size:clamp(17px,1.6vw,22px);line-height:1.4;"><strong style="font-weight:800;letter-spacing:-.01em;">Transfer.</strong> <span style="color:var(--soft);">We leave a current record so your team can run the next chapter.</span></span>
       </li>
     </ol>
-    <a data-reveal="" href="/contact" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),background .25s ease;margin-top:clamp(26px,3vw,40px);text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(245,130,31,.3);" style-hover="background:#ffa04a;color:#14193B;">
+    <a data-reveal="" href="/contact" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),transform .15s ease,box-shadow .15s ease;margin-top:clamp(26px,3vw,40px);text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;border:3px solid var(--navy);box-shadow:7px 7px 0 var(--navy);" style-hover="transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--navy);">
       Book a 20-minute call
       <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
@@ -276,55 +272,55 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 
   <section data-sec="" id="faq" style="scroll-margin-top:80px;padding:0 clamp(18px,4vw,64px) clamp(56px,8vw,120px);">
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);">Questions worth asking</div>
-    <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:14px 0 clamp(20px,2.6vw,36px);font-weight:800;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.025em;">No careful question is too basic.</h2>
-    <div style="border-top:2px solid var(--rule);">
-      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:1px solid var(--hair);">
-        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">Are you a traditional managed service provider?<span data-plus="" aria-hidden="true" style="flex:none;font-weight:400;font-size:22px;line-height:1;color:var(--accent-ink);transition:transform .25s ease;">+</span></summary>
+    <h2 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:14px 0 clamp(24px,3vw,40px);font-family:var(--display);font-weight:400;font-size:clamp(28px,4.4vw,50px);line-height:.98;letter-spacing:-.02em;">NO CAREFUL QUESTION IS TOO BASIC.</h2>
+    <div style="border-top:4px solid var(--navy);">
+      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:2px solid var(--hair);">
+        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">Are you a traditional managed service provider?<span data-plus="" aria-hidden="true" style="flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--accent);color:var(--navy);font-weight:800;font-size:20px;line-height:1;transition:transform .25s ease;">+</span></summary>
         <p style="margin:0;padding-bottom:clamp(18px,2.2vw,26px);font-size:15px;line-height:1.6;color:var(--soft);max-width:56ch;">We provide managed IT when it's the right fit, but we don't lead with a ticket queue or a one-size-fits-all bundle. We lead with ownership, visibility, and the outcome your business needs.</p>
       </details>
-      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:1px solid var(--hair);">
-        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">Do you only work with Microsoft environments?<span data-plus="" aria-hidden="true" style="flex:none;font-weight:400;font-size:22px;line-height:1;color:var(--accent-ink);transition:transform .25s ease;">+</span></summary>
+      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:2px solid var(--hair);">
+        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">Do you only work with Microsoft environments?<span data-plus="" aria-hidden="true" style="flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--accent);color:var(--navy);font-weight:800;font-size:20px;line-height:1;transition:transform .25s ease;">+</span></summary>
         <p style="margin:0;padding-bottom:clamp(18px,2.2vw,26px);font-size:15px;line-height:1.6;color:var(--soft);max-width:56ch;">No. Microsoft 365 is where most of our clients already live, so it's where we go deepest — but the documentation and ownership model applies to whatever you run.</p>
       </details>
-      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:1px solid var(--hair);">
-        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">What makes Seynox different from a consultant?<span data-plus="" aria-hidden="true" style="flex:none;font-weight:400;font-size:22px;line-height:1;color:var(--accent-ink);transition:transform .25s ease;">+</span></summary>
+      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:2px solid var(--hair);">
+        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">What makes Seynox different from a consultant?<span data-plus="" aria-hidden="true" style="flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--accent);color:var(--navy);font-weight:800;font-size:20px;line-height:1;transition:transform .25s ease;">+</span></summary>
         <p style="margin:0;padding-bottom:clamp(18px,2.2vw,26px);font-size:15px;line-height:1.6;color:var(--soft);max-width:56ch;">A consultant hands you a recommendation. We hand you the recommendation, the implementation, and a record your own team can maintain after we're gone.</p>
       </details>
-      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:1px solid var(--hair);">
-        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">Do we have to sign a long contract?<span data-plus="" aria-hidden="true" style="flex:none;font-weight:400;font-size:22px;line-height:1;color:var(--accent-ink);transition:transform .25s ease;">+</span></summary>
+      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:2px solid var(--hair);">
+        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">Do we have to sign a long contract?<span data-plus="" aria-hidden="true" style="flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--accent);color:var(--navy);font-weight:800;font-size:20px;line-height:1;transition:transform .25s ease;">+</span></summary>
         <p style="margin:0;padding-bottom:clamp(18px,2.2vw,26px);font-size:15px;line-height:1.6;color:var(--soft);max-width:56ch;">No. Managed service is month to month. The Handover Pack is a one-time flat fee with no ongoing commitment.</p>
       </details>
-      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:1px solid var(--hair);">
-        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">How fast do you respond?<span data-plus="" aria-hidden="true" style="flex:none;font-weight:400;font-size:22px;line-height:1;color:var(--accent-ink);transition:transform .25s ease;">+</span></summary>
+      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:2px solid var(--hair);">
+        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">How fast do you respond?<span data-plus="" aria-hidden="true" style="flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--accent);color:var(--navy);font-weight:800;font-size:20px;line-height:1;transition:transform .25s ease;">+</span></summary>
         <p style="margin:0;padding-bottom:clamp(18px,2.2vw,26px);font-size:15px;line-height:1.6;color:var(--soft);max-width:56ch;">Thirty minutes, in writing, during business hours — so you always know it's been picked up and by whom.</p>
       </details>
-      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:1px solid var(--hair);">
-        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">What happens if we leave?<span data-plus="" aria-hidden="true" style="flex:none;font-weight:400;font-size:22px;line-height:1;color:var(--accent-ink);transition:transform .25s ease;">+</span></summary>
+      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:2px solid var(--hair);">
+        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">What happens if we leave?<span data-plus="" aria-hidden="true" style="flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--accent);color:var(--navy);font-weight:800;font-size:20px;line-height:1;transition:transform .25s ease;">+</span></summary>
         <p style="margin:0;padding-bottom:clamp(18px,2.2vw,26px);font-size:15px;line-height:1.6;color:var(--soft);max-width:56ch;">You keep every credential, diagram, and document. Accounts and licences are already in your name, so leaving costs you notice and nothing else.</p>
       </details>
-      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:1px solid var(--hair);">
-        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">We're only five people. Are we too small?<span data-plus="" aria-hidden="true" style="flex:none;font-weight:400;font-size:22px;line-height:1;color:var(--accent-ink);transition:transform .25s ease;">+</span></summary>
+      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:2px solid var(--hair);">
+        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">We're only five people. Are we too small?<span data-plus="" aria-hidden="true" style="flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--accent);color:var(--navy);font-weight:800;font-size:20px;line-height:1;transition:transform .25s ease;">+</span></summary>
         <p style="margin:0;padding-bottom:clamp(18px,2.2vw,26px);font-size:15px;line-height:1.6;color:var(--soft);max-width:56ch;">No — that's the size we built this for. Businesses between three and twenty people are large enough that IT failure hurts, and small enough that a full-time hire doesn't make sense.</p>
       </details>
-      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:1px solid var(--hair);">
-        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">What does it cost?<span data-plus="" aria-hidden="true" style="flex:none;font-weight:400;font-size:22px;line-height:1;color:var(--accent-ink);transition:transform .25s ease;">+</span></summary>
+      <details data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);border-bottom:2px solid var(--hair);">
+        <summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,2.2vw,26px) 0;font-weight:800;font-size:clamp(16px,1.5vw,21px);letter-spacing:-.015em;">What does it cost?<span data-plus="" aria-hidden="true" style="flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--accent);color:var(--navy);font-weight:800;font-size:20px;line-height:1;transition:transform .25s ease;">+</span></summary>
         <p style="margin:0;padding-bottom:clamp(18px,2.2vw,26px);font-size:15px;line-height:1.6;color:var(--soft);max-width:56ch;">It depends on your setup and what needs the most attention first, which is what the 20-minute call establishes. You'll get a written number before anything starts — no estimate that changes later.</p>
       </details>
     </div>
   </section>
 
-  <section data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);position:relative;overflow:hidden;border-top:1px solid var(--hair);padding:clamp(64px,10vw,150px) clamp(18px,4vw,64px);">
-    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(90% 90% at 50% 0%,rgba(245,130,31,.14) 0%,rgba(245,130,31,0) 60%);"></div>
-    <div style="position:relative;max-width:800px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);">Start with the pressure point</div>
-      <h2 style="margin:16px 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(34px,5.6vw,80px);line-height:1.04;letter-spacing:-.02em;">Make IT a business asset again.</h2>
-      <p style="margin:clamp(18px,2.2vw,26px) 0 0;font-size:clamp(15px,1.25vw,18px);line-height:1.55;color:var(--soft);max-width:52ch;">Bring us the thing that keeps getting postponed. We'll help make the next step legible.</p>
-      <div style="display:flex;align-items:center;gap:clamp(16px,2.4vw,26px);flex-wrap:wrap;margin-top:clamp(28px,3.4vw,44px);">
-        <a href="/contact" style="text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;transition:background .25s ease;box-shadow:0 10px 30px rgba(245,130,31,.3);" style-hover="background:#ffa04a;color:#14193B;">
+  <section data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);position:relative;overflow:hidden;background:var(--navy);color:var(--paper);border-top:4px solid var(--navy);padding:clamp(64px,10vw,150px) clamp(18px,4vw,64px);">
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(90% 90% at 50% 0%,rgba(245,130,31,.22) 0%,rgba(245,130,31,0) 60%);"></div>
+    <div style="position:relative;max-width:900px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);">Start with the pressure point</div>
+      <h2 style="margin:16px 0 0;font-family:var(--display);font-weight:400;font-size:clamp(38px,6.6vw,96px);line-height:.94;letter-spacing:-.02em;">MAKE IT A BUSINESS ASSET AGAIN.</h2>
+      <p style="margin:clamp(20px,2.4vw,28px) 0 0;font-size:clamp(15px,1.25vw,18px);line-height:1.55;color:rgba(250,250,248,.8);max-width:52ch;">Bring us the thing that keeps getting postponed. We'll help make the next step legible.</p>
+      <div style="display:flex;align-items:center;gap:clamp(16px,2.4vw,26px);flex-wrap:wrap;margin-top:clamp(30px,3.6vw,48px);">
+        <a href="/contact" style="text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;border:3px solid var(--paper);box-shadow:7px 7px 0 var(--paper);transition:transform .15s ease,box-shadow .15s ease;" style-hover="transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--paper);">
           Book a 20-minute call
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
-        <a href="/handover-pack" style="text-decoration:none;border:1px solid var(--navy);color:var(--navy);font-weight:800;font-size:15px;padding:17px 27px;display:inline-flex;align-items:center;gap:12px;transition:background .25s ease,color .25s ease;" style-hover="background:var(--navy);color:var(--paper);">
+        <a href="/handover-pack" style="text-decoration:none;border:3px solid var(--paper);color:var(--paper);font-weight:800;font-size:15px;padding:15px 27px;display:inline-flex;align-items:center;gap:12px;transition:background .25s ease,color .25s ease;" style-hover="background:var(--paper);color:var(--navy);">
           Book the Handover Pack
         </a>
       </div>
