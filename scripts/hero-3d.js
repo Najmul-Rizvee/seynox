@@ -6,13 +6,18 @@
    accent nodes echoing the old placeholder diagram's orange pulse dot).
    Vanilla Three.js, no build step. Mounts into #hero-3d-canvas if present. */
 (function () {
-  function init() {
-    var container = document.getElementById('hero-3d-canvas');
-    if (!container || !window.THREE || container.__heroInit) return;
+  // The site's page runtime (dc-runtime) replaces the whole hero subtree
+  // with a freshly React-rendered copy once it hydrates — destroying
+  // whatever this script already mounted into the original element. A
+  // fixed-count poll can miss that swap on a slow load and leave the
+  // container permanently blank, so `current` below tracks the *live*
+  // container node and re-mounts (cleaning up the old instance first)
+  // whenever it changes, for as long as the page lives.
+  var current = { container: null, cleanup: null };
 
+  function init(container) {
     var width = container.clientWidth, height = container.clientHeight;
-    if (!width || !height) return; // not laid out yet — a later retry will pick it up
-    container.__heroInit = true;
+    if (!width || !height) return; // not laid out yet — a later check will pick it up
 
     var NAVY = 0x14193b;
     var ACCENT = 0xf5821f;
@@ -25,7 +30,7 @@
     var renderer;
     try {
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    } catch (e) { return; }
+    } catch (e) { return; } // no WebGL — nothing to retry, leave the hero blank
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(width, height);
     renderer.setClearColor(0x000000, 0);
@@ -138,23 +143,40 @@
     }
     window.addEventListener('resize', onResize, { passive: true });
 
-    container.__heroCleanup = function () {
+    return function cleanup() {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', onResize);
+      renderer.dispose();
     };
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-  window.addEventListener('load', init);
-  // container may report 0x0 until layout/fonts settle - poll briefly until it works
-  var tries = 0;
-  var poll = setInterval(function () {
+  function check() {
+    if (!window.THREE) return;
     var c = document.getElementById('hero-3d-canvas');
-    if ((c && c.__heroInit) || ++tries > 20) { clearInterval(poll); return; }
-    init();
-  }, 200);
+    if (!c || c === current.container) return;
+    var cleanup = init(c);
+    if (!cleanup) return; // not laid out yet — try again on the next check
+    if (current.cleanup) current.cleanup();
+    current.container = c;
+    current.cleanup = cleanup;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', check);
+  } else {
+    check();
+  }
+  window.addEventListener('load', check);
+
+  // dc-runtime swaps in a freshly-rendered copy of the hero once it
+  // hydrates (and again on any later streamed update), discarding whatever
+  // this script mounted into the previous element — keep watching for that
+  // for the life of the page rather than giving up after a few tries.
+  var scheduled = false;
+  var mo = new MutationObserver(function () {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(function () { scheduled = false; check(); });
+  });
+  mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
