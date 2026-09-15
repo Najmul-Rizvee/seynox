@@ -6,6 +6,8 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/scripts/support.js?v=3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="/scripts/hero-3d.js?v=1" defer></script>
 </head>
 <body>
 <x-dc>
@@ -23,12 +25,8 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are you a traditional managed service provider?","acceptedAnswer":{"@type":"Answer","text":"We provide managed IT when it's the right fit, but we don't lead with a ticket queue or a one-size-fits-all bundle. We lead with ownership, visibility, and the outcome your business needs."}},{"@type":"Question","name":"Do you only work with Microsoft environments?","acceptedAnswer":{"@type":"Answer","text":"No. Microsoft 365 is where most of our clients already live, so it's where we go deepest — but the documentation and ownership model applies to whatever you run."}},{"@type":"Question","name":"What makes Seynox different from a consultant?","acceptedAnswer":{"@type":"Answer","text":"A consultant hands you a recommendation. We hand you the recommendation, the implementation, and a record your own team can maintain after we're gone."}},{"@type":"Question","name":"Do we have to sign a long contract?","acceptedAnswer":{"@type":"Answer","text":"No. Managed service is month to month. The Handover Pack is a one-time flat fee with no ongoing commitment."}},{"@type":"Question","name":"How fast do you respond?","acceptedAnswer":{"@type":"Answer","text":"Thirty minutes, in writing, during business hours — so you always know it's been picked up and by whom."}},{"@type":"Question","name":"What happens if we leave?","acceptedAnswer":{"@type":"Answer","text":"You keep every credential, diagram, and document. Accounts and licences are already in your name, so leaving costs you notice and nothing else."}},{"@type":"Question","name":"We're only five people. Are we too small?","acceptedAnswer":{"@type":"Answer","text":"No — that's the size we built this for. Businesses between three and twenty people are large enough that IT failure hurts, and small enough that a full-time hire doesn't make sense."}},{"@type":"Question","name":"What does it cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on your setup and what needs the most attention first, which is what the 20-minute call establishes. You'll get a written number before anything starts — no estimate that changes later."}}]}</script>
 <style>
 a:hover{color:#B45A0C;}
-[data-net] line,[data-net] path{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);transition:stroke-dashoffset 1.2s cubic-bezier(.3,.8,.3,1);}
-[data-net] circle,[data-net] rect{opacity:0;transition:opacity .6s ease;}
 [data-gridlayer]{opacity:1;}
 [data-glow]{opacity:.9;}
-[data-scan]{animation:sxScan 16s ease-in-out infinite;}
-@keyframes sxScan{0%{transform:translate3d(0,-10%,0);opacity:0;}12%{opacity:.45;}88%{opacity:.45;}100%{transform:translate3d(0,900%,0);opacity:0;}}
 [data-tick]{position:absolute;width:9px;height:9px;border-color:rgba(20,25,59,.3);border-style:solid;transition:border-color .25s ease;}
 [data-card]:hover [data-tick]{border-color:var(--accent);}
 [data-card]{transition:background .25s ease,border-color .25s ease;}
@@ -51,7 +49,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   [data-4]{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
   [data-4]>div{padding:14px 16px!important;border-right:1px solid var(--hair)!important;border-bottom:1px solid var(--hair)!important;}
   [data-4]>div:nth-child(2n){border-right:0!important;}
-  [data-heroart]{display:none!important;}
+  #hero-3d-canvas{display:none!important;}
   [data-cmprow]{grid-template-columns:minmax(0,1fr)!important;gap:6px!important;}
   [data-cmphead]{display:none!important;}
   [data-anchorbar]{display:none!important;}
@@ -76,47 +74,25 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   <dc-import name="site-header" active="" hint-size="100%,64px"></dc-import>
 
   <main id="top">
-  <section style="position:relative;overflow:hidden;border-bottom:1px solid var(--hair);">
-    <div data-heroart="" aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;width:42%;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 34%,#000 62%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 34%,#000 62%);">
-      <svg data-net="" viewBox="0 0 520 560" preserveAspectRatio="xMidYMid slice" stroke-width="1" style="width:100%;height:100%;stroke:rgba(20,25,59,.3);fill:none;">
-        <line x1="80" y1="120" x2="250" y2="70"></line>
-        <line x1="250" y1="70" x2="420" y2="150"></line>
-        <line x1="80" y1="120" x2="160" y2="290"></line>
-        <line x1="160" y1="290" x2="250" y2="70"></line>
-        <line x1="160" y1="290" x2="420" y2="150"></line>
-        <line x1="160" y1="290" x2="330" y2="360"></line>
-        <line x1="330" y1="360" x2="420" y2="150"></line>
-        <line x1="330" y1="360" x2="210" y2="480"></line>
-        <line x1="210" y1="480" x2="160" y2="290"></line>
-        <line x1="210" y1="480" x2="420" y2="470"></line>
-        <line x1="420" y1="470" x2="330" y2="360"></line>
-        <rect x="66" y="106" width="28" height="28"></rect>
-        <rect x="236" y="56" width="28" height="28"></rect>
-        <rect x="406" y="136" width="28" height="28"></rect>
-        <rect x="316" y="346" width="28" height="28"></rect>
-        <rect x="196" y="466" width="28" height="28"></rect>
-        <rect x="406" y="456" width="28" height="28"></rect>
-        <circle data-pulse="" cx="160" cy="290" r="7" fill="var(--accent)" stroke="none"></circle>
-        <circle cx="160" cy="290" r="20" stroke="rgba(245,130,31,.6)"></circle>
-      </svg>
-      <div data-scan="" style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,130,31,.8),transparent);"></div>
-    </div>
-    <div style="position:relative;padding:clamp(56px,9vw,140px) clamp(18px,4vw,64px) clamp(44px,6vw,90px);max-width:1500px;">
-      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);">
+  <section style="position:relative;overflow:hidden;background:var(--navy);">
+    <div id="hero-3d-canvas" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 70% at 82% 18%,rgba(245,130,31,.16) 0%,rgba(245,130,31,0) 60%);"></div>
+    <div style="position:relative;padding:clamp(72px,11vw,168px) clamp(18px,4vw,64px) clamp(64px,9vw,120px);max-width:1500px;">
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,248,.65);">
         <span aria-hidden="true" style="width:26px;height:2px;background:var(--accent);"></span>
         Surrey · Vancouver · Burnaby · Coquitlam · Langley · Delta
       </div>
-      <h1 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(18px,2.6vw,36px) 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,6.4vw,104px);line-height:1;letter-spacing:-.02em;max-width:min(100%,16ch);text-wrap:balance;">IT without <em style="font-style:italic;color:var(--accent-ink);">the fog.</em></h1>
+      <h1 data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:clamp(18px,2.6vw,36px) 0 0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,6.4vw,104px);line-height:1;letter-spacing:-.02em;max-width:min(100%,16ch);text-wrap:balance;color:var(--paper);">IT without <em style="font-style:italic;color:var(--accent);">the fog.</em></h1>
       <div data-herocopy="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(20px,3vw,52px);margin-top:clamp(26px,3.2vw,44px);max-width:min(100%,64%);">
-        <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:0;font-size:clamp(16px,1.35vw,20px);line-height:1.55;color:var(--soft);">Know what runs your business — who owns it, what it costs to lose, and how to hand it off without starting from zero.</p>
-        <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:0;font-size:13px;line-height:1.6;color:var(--soft);border-left:2px solid var(--accent);padding-left:clamp(14px,1.6vw,22px);">For growing teams tired of reactive fixes, unclear ownership, and systems only one person understands.</p>
+        <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:0;font-size:clamp(16px,1.35vw,20px);line-height:1.55;color:rgba(250,250,248,.8);">Know what runs your business — who owns it, what it costs to lose, and how to hand it off without starting from zero.</p>
+        <p data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);margin:0;font-size:13px;line-height:1.6;color:rgba(250,250,248,.65);border-left:2px solid var(--accent);padding-left:clamp(14px,1.6vw,22px);">For growing teams tired of reactive fixes, unclear ownership, and systems only one person understands.</p>
       </div>
       <div data-reveal="" style="opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1);display:flex;align-items:center;gap:clamp(18px,2.6vw,34px);flex-wrap:wrap;margin-top:clamp(28px,3.6vw,52px);">
-        <a href="/contact" style="text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;transition:background .25s ease;box-shadow:0 10px 30px rgba(245,130,31,.3);" style-hover="background:#ffa04a;color:#14193B;">
+        <a href="/contact" style="text-decoration:none;background:var(--accent);color:var(--navy);font-weight:800;font-size:15px;padding:18px 28px;display:inline-flex;align-items:center;gap:12px;transition:background .25s ease;box-shadow:0 10px 34px rgba(245,130,31,.4);" style-hover="background:#ffa04a;color:#14193B;">
           Book a 20-minute call
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
-        <a href="#what-we-do" style="font-size:14px;text-decoration:underline;color:var(--ink);">See how we work ↓</a>
+        <a href="#what-we-do" style="font-size:14px;text-decoration:underline;color:var(--paper);">See how we work ↓</a>
       </div>
     </div>
   </section>
@@ -367,25 +343,6 @@ class Component extends DCLogic {
   apply() {
     document.documentElement.style.setProperty('--accent', this.props.accentColor || '#F5821F');
     this.observe();
-    this.drawNet();
-    if (this._show) this._show();
-  }
-  drawNet() {
-    const svg = document.querySelector('[data-net]');
-    if (!svg) return;
-    if (svg.__init) { if (this._show) this._show(); return; }
-    svg.__init = true;
-    svg.querySelectorAll('line,path').forEach((el, i) => {
-      const len = el.getTotalLength ? el.getTotalLength() : 400;
-      el.style.setProperty('--len', len);
-      el.style.transitionDelay = (i * 85) + 'ms';
-    });
-    svg.querySelectorAll('circle,rect').forEach((el, i) => { el.style.transitionDelay = (320 + i * 90) + 'ms'; });
-    this._show = () => {
-      svg.querySelectorAll('line,path').forEach(el => { el.style.strokeDashoffset = '0'; });
-      svg.querySelectorAll('circle,rect').forEach(el => { el.style.opacity = '1'; });
-    };
-    requestAnimationFrame(() => requestAnimationFrame(this._show));
   }
   observe() {
     const els = Array.from(document.querySelectorAll('[data-reveal]:not([data-seen])'));
