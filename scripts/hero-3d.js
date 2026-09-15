@@ -1,6 +1,10 @@
-/* Seynox hero 3D scene — a glossy curved ribbon with an animated light
-   trail over a starfield, in the site's navy/orange palette. Vanilla
-   Three.js, no build step. Mounts into #hero-3d-canvas if present. */
+/* Seynox hero 3D scene — a rotating topology graph: nodes distributed
+   over a sphere, connected by lines where they're close, with rhythmic
+   per-node pulses. Ported from ThreeUI's StructureFlowCollection
+   (topology-field variant / "Nexus topology field") animation core,
+   recolored for the light hero (navy nodes/lines on paper, a couple of
+   accent nodes echoing the old placeholder diagram's orange pulse dot).
+   Vanilla Three.js, no build step. Mounts into #hero-3d-canvas if present. */
 (function () {
   function init() {
     var container = document.getElementById('hero-3d-canvas');
@@ -10,12 +14,13 @@
     if (!width || !height) return; // not laid out yet — a later retry will pick it up
     container.__heroInit = true;
 
-    var NAVY = new THREE.Color(0x14193B);
-    var ORANGE = new THREE.Color(0xF5821F);
+    var NAVY = 0x14193b;
+    var ACCENT = 0xf5821f;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
-    camera.position.set(0, 0, 9);
+
+    var camera = new THREE.PerspectiveCamera(50, width / height, 1, 2000);
+    camera.position.z = 650;
 
     var renderer;
     try {
@@ -26,138 +31,115 @@
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-    var key = new THREE.DirectionalLight(0xffffff, 1.1);
-    key.position.set(4, 5, 6);
-    scene.add(key);
-    var rim = new THREE.PointLight(0xF5821F, 1.4, 20);
-    rim.position.set(-3, -1, 4);
-    scene.add(rim);
+    var group = new THREE.Group();
+    scene.add(group);
 
-    // --- the ribbon: a flattened tube along a curved path ---------------
-    var curve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-4.6, -2.4, -1.5),
-      new THREE.Vector3(-2.2, -0.8, 0.4),
-      new THREE.Vector3(0.2, 1.1, 1.2),
-      new THREE.Vector3(2.6, 1.6, -0.2),
-      new THREE.Vector3(4.8, 2.6, -1.8)
-    ]);
-    var tubeSegments = 160;
-    var tubeGeo = new THREE.TubeGeometry(curve, tubeSegments, 0.62, 16, false);
+    // --- nodes: evenly distributed over a unit sphere --------------------
+    var numNodes = 120;
+    var nodes = [];
+    var nodeGeo = new THREE.SphereGeometry(1, 16, 16);
+    var accentIdx = { 12: true, 67: true };
 
-    // gradient vertex colors along the ribbon's length (navy -> orange)
-    var posAttr = tubeGeo.attributes.position;
-    var colors = new Float32Array(posAttr.count * 3);
-    var tmp = new THREE.Color();
-    for (var i = 0; i < posAttr.count; i++) {
-      var t = (i / (16 + 1)) / tubeSegments;
-      tmp.copy(NAVY).lerp(ORANGE, Math.min(1, t * 1.15));
-      colors[i * 3] = tmp.r; colors[i * 3 + 1] = tmp.g; colors[i * 3 + 2] = tmp.b;
+    for (var i = 0; i < numNodes; i++) {
+      var phi = Math.acos(-1 + (2 * i) / numNodes);
+      var theta = Math.sqrt(numNodes * Math.PI) * phi;
+      var x = Math.cos(theta) * Math.sin(phi);
+      var y = Math.sin(theta) * Math.sin(phi);
+      var z = Math.cos(phi);
+      var isAccent = !!accentIdx[i];
+
+      var mesh = new THREE.Mesh(
+        nodeGeo,
+        new THREE.MeshBasicMaterial({ color: isAccent ? ACCENT : NAVY, transparent: true, opacity: 0.75 })
+      );
+      mesh.position.set(x, y, z);
+      mesh.userData = {
+        baseSize: (isAccent ? 1.3 : Math.random() * 1.5 + 1.0),
+        pulseSpeed: Math.random() * 0.02 + 0.015,
+        pulseOffset: Math.random() * Math.PI * 2,
+        isAccent: isAccent
+      };
+      group.add(mesh);
+      nodes.push(mesh);
     }
-    tubeGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    var ribbonMat = new THREE.MeshPhysicalMaterial({
-      vertexColors: true,
-      metalness: 0.55,
-      roughness: 0.28,
-      clearcoat: 1,
-      clearcoatRoughness: 0.15,
-      reflectivity: 0.6
-    });
-    var ribbon = new THREE.Mesh(tubeGeo, ribbonMat);
-    ribbon.scale.y = 0.42; // flatten the round tube into a ribbon
-    scene.add(ribbon);
-
-    // --- animated light trail racing along the same curve ---------------
-    function glowTexture() {
-      var c = document.createElement('canvas');
-      c.width = c.height = 128;
-      var ctx = c.getContext('2d');
-      var g = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
-      g.addColorStop(0, 'rgba(255,255,255,1)');
-      g.addColorStop(0.35, 'rgba(255,236,214,.9)');
-      g.addColorStop(1, 'rgba(255,236,214,0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, 128, 128);
-      return new THREE.CanvasTexture(c);
-    }
-    var trailTex = glowTexture();
-    var trailGroup = new THREE.Group();
-    var TRAIL_LEN = 14;
-    var trailSprites = [];
-    for (var s = 0; s < TRAIL_LEN; s++) {
-      var mat = new THREE.SpriteMaterial({ map: trailTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
-      var sprite = new THREE.Sprite(mat);
-      var scale = 0.85 - (s / TRAIL_LEN) * 0.6;
-      sprite.scale.set(scale, scale, 1);
-      trailGroup.add(sprite);
-      trailSprites.push(sprite);
-    }
-    scene.add(trailGroup);
-
-    // --- starfield --------------------------------------------------------
-    var starCount = 180;
-    var starGeo = new THREE.BufferGeometry();
-    var starPos = new Float32Array(starCount * 3);
-    for (var p = 0; p < starCount; p++) {
-      starPos[p * 3] = (Math.random() - 0.5) * 16;
-      starPos[p * 3 + 1] = (Math.random() - 0.5) * 10;
-      starPos[p * 3 + 2] = (Math.random() - 0.5) * 8 - 2;
-    }
-    starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
-    var starMat = new THREE.PointsMaterial({ color: 0xFAFAF8, size: 0.045, transparent: true, opacity: 0.55, depthWrite: false });
-    var stars = new THREE.Points(starGeo, starMat);
-    scene.add(stars);
-
-    // --- interaction: subtle mouse parallax --------------------------------
-    var mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
-    function onMove(e) {
-      var r = container.getBoundingClientRect();
-      mouseX = ((e.clientX - r.left) / r.width - 0.5) * 2;
-      mouseY = ((e.clientY - r.top) / r.height - 0.5) * 2;
-    }
-    window.addEventListener('mousemove', onMove, { passive: true });
-
-    var t0 = performance.now();
-    var raf;
-    function animate(now) {
-      raf = requestAnimationFrame(animate);
-      var elapsed = (now - t0) / 1000;
-      targetX += (mouseX - targetX) * 0.04;
-      targetY += (mouseY - targetY) * 0.04;
-      camera.position.x = targetX * 0.9;
-      camera.position.y = 0.3 + targetY * -0.5;
-      camera.lookAt(0, 0.2, 0);
-
-      if (!reduceMotion) {
-        var speed = 0.06;
-        var head = (elapsed * speed) % 1;
-        for (var k = 0; k < trailSprites.length; k++) {
-          var tt = head - k * 0.012;
-          tt = ((tt % 1) + 1) % 1;
-          var pt = curve.getPointAt(tt);
-          trailSprites[k].position.copy(pt);
-          trailSprites[k].material.opacity = Math.max(0, 1 - k / trailSprites.length) * 0.9;
+    // --- lines between nodes that are close on the sphere ----------------
+    var linePos = [];
+    for (var a = 0; a < numNodes; a++) {
+      for (var b = a + 1; b < numNodes; b++) {
+        var dist = nodes[a].position.distanceTo(nodes[b].position);
+        var threshold = 0.45;
+        if (dist < threshold) {
+          linePos.push(nodes[a].position.x, nodes[a].position.y, nodes[a].position.z);
+          linePos.push(nodes[b].position.x, nodes[b].position.y, nodes[b].position.z);
         }
-        stars.rotation.y = elapsed * 0.01;
-        ribbon.rotation.z = Math.sin(elapsed * 0.15) * 0.02;
       }
-      renderer.render(scene, camera);
     }
-    animate(t0);
 
-    function onResize() {
+    var lineGeo = new THREE.BufferGeometry();
+    lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePos, 3));
+    var lineMat = new THREE.LineBasicMaterial({
+      color: NAVY,
+      transparent: true,
+      depthWrite: false,
+      opacity: 0.22
+    });
+    var lines = new THREE.LineSegments(lineGeo, lineMat);
+    group.add(lines);
+
+    // container is the masked right-hand strip of the hero, not the full
+    // width — size the sphere off its own box, not fixed viewport breakpoints.
+    function fit() {
       var w = container.clientWidth, h = container.clientHeight;
       if (!w || !h) return;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
+
+      var R = Math.min(w, h) * 0.46;
+      group.scale.set(R, R, R);
+      group.position.set(0, 0, 0);
+    }
+    fit();
+
+    var t0 = performance.now();
+    var raf;
+    function animate(now) {
+      raf = requestAnimationFrame(animate);
+
+      if (!reduceMotion) {
+        // canonical source advances a frame counter (`time += 1` per rAf,
+        // ~60fps); approximate that here from real elapsed time so the
+        // motion speed matches regardless of actual frame rate.
+        var tFrames = (now - t0) / 16.6667;
+
+        group.rotation.y = tFrames * 0.0018;
+        group.rotation.x = 0.2;
+        group.rotation.z = tFrames * 0.0006;
+
+        nodes.forEach(function (mesh) {
+          var p = mesh.userData;
+          var pulse = (Math.sin((tFrames * p.pulseSpeed) + p.pulseOffset) + 1) / 2;
+
+          var targetRadius = p.baseSize + pulse * 1.8;
+          var scale = targetRadius / group.scale.x;
+
+          mesh.scale.set(scale, scale, scale);
+          mesh.material.opacity = (p.isAccent ? 0.55 : 0.35) + (pulse * 0.6);
+        });
+      }
+
+      renderer.render(scene, camera);
+    }
+    animate(t0);
+
+    function onResize() {
+      fit();
     }
     window.addEventListener('resize', onResize, { passive: true });
 
     container.__heroCleanup = function () {
       cancelAnimationFrame(raf);
-      window.removeEventListener('mousemove', onMove);
       window.removeEventListener('resize', onResize);
     };
   }
