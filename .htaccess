@@ -1,21 +1,11 @@
 RewriteEngine On
 
-# shared component partials, fetched client-side by name
-RewriteRule ^(site-header|site-footer|page-hero|cta-band|proof-band|lead-form)\.html$ /components/$1.html [L]
-
-# homepage
-RewriteRule ^$ /pages/home.html [L]
-
-# service sub-pages
-RewriteRule ^(managed-it|cloud-microsoft-365|cybersecurity|it-consulting)/?$ /pages/services/$1.html [L]
-
-# industry sub-pages
-RewriteRule ^(accounting-it-support|legal-it-support|professional-services-it)/?$ /pages/industries/$1.html [L]
-
-# location sub-pages
-RewriteRule ^(it-support-(vancouver|burnaby|surrey|coquitlam|langley|chilliwack|white-rock|delta))/?$ /pages/locations/$1.html [L]
-
-# top-level pages
+# Single-file site with a client-side hash router (index.html handles
+# everything after the #). Serve index.html for any request that isn't
+# an actual file/directory on disk, so old bookmarked/indexed URLs like
+# /managed-it still load the app (index.html's own redirect map then
+# sends them to the matching #/... route instead of just landing on
+# the homepage) rather than 404ing.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-z0-9-]+)/?$ /pages/$1.html [L]
+RewriteRule ^ /index.html [L]

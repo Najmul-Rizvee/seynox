@@ -1,7 +1,7 @@
 # Seynox IT Solutions — Website
 
-Marketing site for Seynox IT Solutions. Static HTML pages (`.html`), no build
-step — files are deployed as-is.
+Marketing site for Seynox IT Solutions. A single self-contained `index.html`
+(no build step, no bundler) covering 12 pages via a client-side hash router.
 
 ## Live pipeline
 
@@ -11,122 +11,66 @@ step — files are deployed as-is.
 ## Folder structure
 
 ```
-components/         Shared partials, pulled into pages via <dc-import name="...">
-  site-header.html
-  site-footer.html
-  page-hero.html
-  cta-band.html
-  proof-band.html
-  lead-form.html
-
-pages/               One file per URL. Grouped by section for discoverability.
-  home.html                  -> /
-  services.html              -> /services        (overview)
-  about.html                  -> /about
-  contact.html                -> /contact
-  faq.html                    -> /faq
-  field-notes.html            -> /field-notes
-  handover-pack.html          -> /handover-pack
-  industries.html             -> /industries      (overview)
-  locations.html              -> /locations       (overview)
-  pricing.html                 -> /pricing
-  privacy.html                 -> /privacy
-  terms.html                   -> /terms
-  services/
-    managed-it.html                  -> /managed-it
-    cloud-microsoft-365.html         -> /cloud-microsoft-365
-    cybersecurity.html               -> /cybersecurity
-    it-consulting.html               -> /it-consulting
-  industries/
-    accounting-it-support.html            -> /accounting-it-support
-    legal-it-support.html                 -> /legal-it-support
-    professional-services-it.html         -> /professional-services-it
-  locations/
-    it-support-vancouver.html       -> /it-support-vancouver
-    it-support-burnaby.html         -> /it-support-burnaby
-    it-support-surrey.html          -> /it-support-surrey
-    it-support-coquitlam.html       -> /it-support-coquitlam
-    it-support-langley.html         -> /it-support-langley
-    it-support-chilliwack.html      -> /it-support-chilliwack
-    it-support-white-rock.html      -> /it-support-white-rock
-    it-support-delta.html           -> /it-support-delta
-
-scripts/             Vanilla JS, loaded by every page
-  support.js           Page runtime (renders each page's <x-dc> content, handles
-                        component loading). Generated — treat as vendored, avoid
-                        hand-editing unless you understand the whole file.
-  seynox-logo.js        <seynox-logo> custom element (WebGL mark, SVG fallback)
-
-styles/tokens.css    Design system: brand colors, fonts, base resets. Linked
-                     from every page/component — the single source of truth.
-uploads/             Images referenced by pages
-.htaccess            Clean-URL rewrite rules (see below)
-favicon.svg           Generated from the same shape math as scripts/seynox-logo.js
-sitemap.xml, robots.txt
+index.html         the entire site — all HTML/CSS/JS inline
+design-system.md    typography / spacing / color / component reference —
+                     read this before styling anything new
+.htaccess            serves index.html for any path that isn't a real file,
+                      so old bookmarked/indexed URLs still load the app
+favicon.svg
+robots.txt
+sitemap.xml
 ```
 
-## Clean URLs — how they work
+The only external requests are Google Fonts and the Tailwind CDN script
+(`cdn.tailwindcss.com`) — nothing to `npm install`, nothing to build.
 
-Every page file lives at a nested physical path (e.g.
-`pages/locations/it-support-vancouver.html`) but is served at a flat clean URL
-(`/it-support-vancouver`). `.htaccess` does an internal rewrite (URL bar never
-changes) mapping each slug to its real file.
+## Routing
 
-Each page's `<head>` also has a matching, **flat** `<base href="/<slug>">` tag
-— e.g. `<base href="/it-support-vancouver">` even though the real file is
-nested. This doesn't need to point at a real file; it only needs to:
+Pages live at hash routes, not real paths: `/#/managed-it`,
+`/#/industries/legal`, etc. `window.location.hash` drives which `.page` div
+is shown (see the router `<script>` near the end of `index.html`, search for
+`var PAGES = {`). `/#/promise`, `/#/pricing`, `/#/insights`, `/#/services`,
+`/#/industries` are aliases that show the homepage and scroll to that
+section (`HOME_ANCHORS` in the same script) — they are not separate pages.
 
-1. Keep every page's relative asset paths (component fetches, etc.) resolving
-   against the site root, regardless of how deep the real file is nested.
-2. Give `scripts/support.js` a slug-shaped last path segment to read, so it
-   knows which component is the page's root (see `dcNameFromPath` in
-   `scripts/support.js`).
+The previous site used real paths (`/managed-it`, `/cloud-microsoft-365`,
+etc.). A small redirect map at the top of the router script
+(`OLD_PATH_REDIRECTS`) sends anyone landing on one of those old URLs with no
+hash yet to the closest equivalent `#/...` route, so old bookmarks and
+search-indexed links don't just dead-end on the homepage. Extend that map if
+you notice more old links in the wild.
 
-If you add a page, you need three things in sync: the physical file, a
-`.htaccess` rule for its slug, and the `<base href="/slug">` tag in its
-`<head>`. Copy an existing page in the same section as a template.
+## Known gaps (carried over honestly, not hidden)
 
-## Adding a new location page
+- **No privacy or terms page.** The previous site had `/privacy` and
+  `/terms`; this theme doesn't include equivalents. Don't fabricate legal
+  copy — get real text from whoever owns that decision, then add pages for
+  it.
+- **No per-location landing pages** (Vancouver, Burnaby, Surrey, etc. each
+  had their own page before). If local-SEO landing pages matter, that's a
+  deliberate follow-up, not an oversight.
+- **The contact form has no backend** (this is a static site). It opens the
+  visitor's own mail client with a prefilled email to `hello@seynox.ca`
+  rather than silently pretending to submit — a real fix, but it does
+  depend on the visitor completing the send in their mail app. If a "we
+  actually got your form" experience matters, that needs a form-handling
+  service (Formspree, a Cloudflare Worker, etc.), which is a real backend
+  decision, not something to bolt on silently.
 
-1. Copy an existing file in `pages/locations/` as a starting point.
-2. Update its `<base href>`, `<title>`, canonical/OG tags, and body copy.
-3. Add its slug to the location alternation in `.htaccess`
-   (`RewriteRule ^(it-support-(vancouver|...))/?$ ...`).
-4. Add a nav link in `components/site-header.html` (and footer, if listed
-   there) and an entry in `sitemap.xml`.
+## Design system
 
-## Components
+`design-system.md` is the source of truth for colors, type scale, spacing,
+and component patterns (buttons, cards, nav, FAQ accordion, etc.). Read it
+before adding a new section or page so new work matches the existing system
+instead of introducing a near-duplicate pattern. If it and the code ever
+disagree, the code is correct — update the doc.
 
-Components are fetched client-side by name: `<dc-import name="site-header">`
-in a page triggers a fetch of `/site-header.html`, which `.htaccess` rewrites
-to `components/site-header.html`. Component names must stay in sync with
-their filename (case-sensitive) in both the `dc-import` tag and the
-`.htaccess` component rule.
+## Running it locally
 
-## Static assets are cached for 7 days at the edge (important)
+Just open `index.html` in a browser, or serve it over `http://`:
 
-Hostinger's CDN serves `styles/tokens.css`, `scripts/*.js`, images, etc. with
-`Cache-Control: public, max-age=604800`, and it does **not** purge on deploy.
-Editing one of these files and pushing is not enough — visitors (and the CDN
-itself) can keep serving the old version for up to a week.
-
-When you change any file under `styles/` or `scripts/`, bump the version query
-string on every reference to it (e.g. `tokens.css?v=2` -> `?v=3`):
-
-```
-grep -rl 'tokens.css?v=2' pages components | xargs sed -i '' 's/tokens.css?v=2/tokens.css?v=3/'
-```
-
-Also note: `.htaccess` is **not** overwritten by Hostinger's git auto-deploy on
-repeat deploys (it's left alone to protect manual server-side rules). If you
-change `.htaccess`, you must also push it directly:
-
-```
-cat .htaccess | ssh -p 65002 -i ~/.ssh/hostinger_seynox u734557115@191.101.13.47 \
-  "cat > domains/seynox.com/public_html/.htaccess"
+```bash
+python3 -m http.server 8000
 ```
 
-## Domain
-
-Site domain is `seynox.com`. Email addresses still use `@seynox.ca`
-intentionally — that's a separate, unrelated business decision, not a bug.
+Then visit `http://localhost:8000`.
