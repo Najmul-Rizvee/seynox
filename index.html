@@ -49,6 +49,10 @@
   .faq-item[data-open="true"] .chev{ transform:rotate(180deg); }
   .chev{ transition:transform .25s cubic-bezier(.22,.61,.36,1); }
   ::selection{ background:rgba(245,130,31,0.22); }
+  /* the router focuses each page's h1 after navigation so screen readers
+     announce the new page; that's not a real tab stop, so skip the
+     browser's default focus box on it. */
+  h1[tabindex="-1"]:focus{ outline:none; }
   .site-header-bar{ background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.22); backdrop-filter:blur(22px) saturate(150%); -webkit-backdrop-filter:blur(22px) saturate(150%); transition:background .3s ease, border-color .3s ease, box-shadow .3s ease; }
   .site-header-bar.scrolled{ background:rgba(255,255,255,0.85); border-color:rgba(226,232,240,0.7); }
   .hdr-brand-mark path.hdr-line{ stroke:#fff; transition:stroke .3s ease; }
