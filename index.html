@@ -355,6 +355,17 @@
   .hero--it-consulting{ background:
     radial-gradient(ellipse 50% 40% at 80% 20%, rgba(251,146,60,.1), transparent 50%),
     linear-gradient(160deg, #161820 0%, #101218 45%, #0c0d12 100%); }
+  .hero--promise{ background:
+    radial-gradient(ellipse 70% 55% at 20% 15%, rgba(245,158,11,.22), transparent 58%),
+    radial-gradient(ellipse 45% 40% at 85% 75%, rgba(251,146,60,.12), transparent 50%),
+    #08080a; }
+  .hero--pricing{ background:
+    radial-gradient(ellipse 60% 60% at 85% 10%, rgba(251,146,60,.18), transparent 55%),
+    radial-gradient(ellipse 50% 50% at 10% 90%, rgba(20,25,59,.55), transparent 55%),
+    #0a0a0d; }
+  .hero--insights{ background:
+    radial-gradient(ellipse 55% 45% at 15% 85%, rgba(251,146,60,.16), transparent 55%),
+    linear-gradient(160deg, #0d0f14 0%, #0a0b10 50%, #0b1220 100%); }
   .hero-vignette{ position:absolute; inset:0; z-index:1; pointer-events:none;
     background: linear-gradient(180deg, rgba(5,5,6,.15) 0%, transparent 40%, rgba(5,5,6,.35) 100%); }
   .hero--managed-it .hero-vignette{ background:
@@ -5431,6 +5442,773 @@
   </section>
 </div>
 
+<div class="page" data-page="/promise" hidden>
+  <div class="hero-panel hero--promise relative">
+    <canvas class="mesh-canvas"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-vignette"></div>
+      <div class="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl"><div class="site-header-bar rounded-[28px] lg:rounded-full">
+        <div class="flex items-center justify-between gap-6 pl-5 pr-2.5 py-2.5">
+          <a href="#/" class="flex items-center gap-2.5 shrink-0">
+            <svg class="hdr-brand-mark" width="30" height="30" viewBox="0 0 40 40" fill="none">
+              <path class="hdr-line" d="M14 6 L6 12 L6 28 L14 34" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="hdr-line" d="M26 6 L34 12 L34 28 L26 34" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 13 L25 20 L16 27" stroke="#F5821F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="hdr-logo-word font-display font-semibold text-[1.02rem] leading-tight">Seynox<span class="hdr-logo-sub block text-[0.62rem] font-body font-medium tracking-wide -mt-0.5">IT SOLUTIONS</span></span>
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-1 text-sm font-medium">
+            <div class="menu-item relative" data-open="false">
+              <button class="hdr-link menu-trigger flex items-center gap-1.5 px-3.5 py-2 rounded-full">
+                What We Do
+                <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="menu-panel absolute z-20 top-[calc(100%+12px)] left-0 w-80 max-w-[92vw] bg-white border border-slate-200/80 rounded-3xl shadow-softhover p-3">
+                <div class="flex flex-col gap-1">
+                  <a href="#/managed-it" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-ink text-accent flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v10H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 20h6M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Managed IT</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">24/7 help desk &amp; monitoring</span></span>
+                  </a>
+                  <a href="#/cloud-m365" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 18a5 5 0 01-1-9.9A6 6 0 0117.9 8 4.5 4.5 0 0117 18H7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Cloud &amp; Microsoft 365</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">Tenant admin &amp; migrations</span></span>
+                  </a>
+                  <a href="#/cybersecurity" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Cybersecurity</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">SOC, EDR &amp; Zero Trust</span></span>
+                  </a>
+                  <a href="#/it-consulting" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-violet-50 text-violet-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19V9l6-4 6 4v10M4 19h16M10 19v-6h4v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">IT Consulting</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">vCIO &amp; roadmaps</span></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="menu-item relative" data-open="false">
+              <button class="hdr-link menu-trigger flex items-center gap-1.5 px-3.5 py-2 rounded-full">
+                Industries
+                <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="menu-panel absolute z-20 top-[calc(100%+12px)] left-0 w-72 max-w-[92vw] bg-white border border-slate-200/80 rounded-3xl shadow-softhover p-3">
+                <a href="#/industries/legal" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Legal &amp; Professional Services
+                </a>
+                <a href="#/industries/healthcare" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9C.9 8.5 2.7 5 6 5c2 0 3.3 1.1 4 2 0.7-0.9 2-2 4-2 3.3 0 5.1 3.5 3.5 7-2.5 4.5-9.5 9-9.5 9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Healthcare &amp; Allied Health
+                </a>
+                <a href="#/industries/financial" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M4 20V6a2 2 0 012-2h12a2 2 0 012 2v14M9 9h6M9 13h6M9 17h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Financial &amp; Accounting
+                </a>
+                <a href="#/industries/construction" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Construction &amp; Trades
+                </a>
+                <a href="#/industries/real-estate" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7M5 10v10h14V10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Real Estate &amp; Property Mgmt.
+                </a>
+                <a href="#/industries/manufacturing" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 20V10l6 4v-4l6 4V6l6 4v10H3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Manufacturing &amp; Logistics
+                </a>
+              </div>
+            </div>
+            <a href="#/promise" class="hdr-link px-3.5 py-2 rounded-full">Why Seynox</a>
+            <a href="#/pricing" class="hdr-link px-3.5 py-2 rounded-full">Pricing</a>
+            <a href="#/insights" class="hdr-link px-3.5 py-2 rounded-full">Insights</a>
+          </nav>
+
+          <div class="flex items-center gap-2">
+            <a href="#/contact" class="hdr-cta hidden sm:inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm whitespace-nowrap">
+              Book a Strategy Call
+            </a>
+            <button class="hdr-toggle mobile-nav-toggle lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full" aria-label="Toggle menu" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mobile-nav-panel lg:hidden hidden border-t border-white/15 px-3 pb-4 pt-2">
+          <div class="flex flex-col">
+            <button class="hdr-link mobile-trigger flex items-center justify-between w-full px-3 py-3 text-left font-semibold text-[0.95rem]">
+              What We Do
+              <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="hidden pl-3 pb-2 flex flex-col gap-1">
+              <a href="#/managed-it" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Managed IT</a>
+              <a href="#/cloud-m365" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Cloud &amp; Microsoft 365</a>
+              <a href="#/cybersecurity" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Cybersecurity</a>
+              <a href="#/it-consulting" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">IT Consulting</a>
+            </div>
+            <button class="hdr-link mobile-trigger flex items-center justify-between w-full px-3 py-3 text-left font-semibold text-[0.95rem]">
+              Industries
+              <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="hidden pl-3 pb-2 flex flex-col gap-1">
+              <a href="#/industries/legal" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Legal &amp; Professional Services</a>
+              <a href="#/industries/healthcare" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Healthcare &amp; Allied Health</a>
+              <a href="#/industries/financial" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Financial &amp; Accounting</a>
+              <a href="#/industries/construction" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Construction &amp; Trades</a>
+              <a href="#/industries/real-estate" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Real Estate &amp; Property Mgmt.</a>
+              <a href="#/industries/manufacturing" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Manufacturing &amp; Logistics</a>
+            </div>
+            <a href="#/promise" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Why Seynox</a>
+            <a href="#/pricing" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Pricing</a>
+            <a href="#/insights" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Insights</a>
+            <a href="#/contact" class="hdr-cta mt-2 inline-flex items-center justify-center gap-2 text-sm font-semibold px-5 py-3 rounded-full">Book a Strategy Call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 pt-36 sm:pt-44 pb-40 text-center">
+      <h1 class="mt-4 font-semibold tracking-tight">
+        <span class="hero-lead">Your Technology. Your Assets.</span>
+        <span class="script-line">No hostage situations, ever.</span>
+      </h1>
+      <p class="mt-5 text-[15px] text-stone-300 max-w-xl mx-auto leading-relaxed">Too many IT providers build black-box environments to keep you trapped — hidden passwords, concealed system maps, expensive exits. We believe loyalty is earned through service, not enforced lock-in.</p>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <a href="#/contact" class="cta-main px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-amber-600 text-neutral-950 text-sm font-semibold">Book a Strategy Call</a>
+        <a href="#" data-scroll-to="promise-clauses" class="px-6 py-3 rounded-full border border-white/15 text-sm">See the SLA Guarantee</a>
+      </div>
+      <p class="mt-6 text-[12px] tracking-wide text-stone-400">Master keys in your name <span class="opacity-35">·</span> Zero exit fees <span class="opacity-35">·</span> Vault exportable in &lt;24 hrs</p>
+    </div>
+  </div>
+
+  <section id="promise-clauses" class="px-4 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-xl reveal mb-10">
+        <span class="inline-flex items-center gap-2 text-accent text-[0.78rem] font-bold tracking-wide uppercase mb-4"><span class="w-4 h-0.5 bg-accent rounded-full"></span>The Transparency Promise</span>
+        <h2 class="text-2xl sm:text-[2rem] font-semibold tracking-tight">Four clauses, written into every MSA</h2>
+        <p class="mt-4 text-slate-500 leading-relaxed">Not marketing language — the actual terms that govern how we hold your credentials, document your systems, and let you leave.</p>
+      </div>
+      <div class="promise-band relative overflow-hidden rounded-4xl bg-[#08080a] border border-neutral-800/80 reveal">
+        <div class="pointer-events-none absolute inset-0" style="background:radial-gradient(ellipse 70% 60% at 18% 0%, rgba(251,146,60,.16), transparent 50%), linear-gradient(180deg, rgba(8,8,10,.2), rgba(8,8,10,.88) 55%, #08080a);"></div>
+        <div class="relative px-6 sm:px-12 py-12 sm:py-14">
+          <article class="clause">
+            <div class="clause-num">01</div>
+            <div>
+              <h3>Master Keys in Your Name</h3>
+              <p>You retain legal ownership of everything. Your Microsoft 365 tenant, cloud licenses, and domain registrations are provisioned strictly to your company — never masked behind a reseller account we control. If we vanished tomorrow, you'd still hold every key.</p>
+            </div>
+          </article>
+          <article class="clause">
+            <div class="clause-num">02</div>
+            <div>
+              <h3>The Shared Documentation Vault</h3>
+              <p>No mystery setups. Your network topology, IP schemas, device credentials, and SOPs live in a secure, centralized vault your leadership team can open and export at any time — not just when you ask nicely.</p>
+            </div>
+          </article>
+          <article class="clause">
+            <div class="clause-num">03</div>
+            <div>
+              <h3>Clean, Non-Proprietary Architecture</h3>
+              <p>We configure your systems on native Microsoft and enterprise-standard frameworks. No custom black-box scripts or bizarre proprietary tools that force a rebuild the moment another engineer steps in.</p>
+            </div>
+          </article>
+          <article class="clause">
+            <div class="clause-num">04</div>
+            <div>
+              <h3>The Zero-Penalty Clean Break</h3>
+              <p>If you ever outgrow us, or bring IT in-house, we run a structured, professional handover: documentation exported, credentials transferred, our tools removed. No hostage fees, no friction, no negotiation required.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cap-band-wrap">
+  <section class="cap-band text-white relative overflow-hidden">
+    <div class="hero-grid opacity-40"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-20">
+      <p class="text-[11px] tracking-[0.18em] uppercase text-orange-300">What lock-in actually costs you</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight max-w-2xl">Most MSP contracts are built to make leaving expensive.</h2>
+      <p class="mt-4 text-stone-400 max-w-xl leading-relaxed">Ask any provider who holds your domain registrar login. Most won't have a clean answer. We do — because it isn't ours to hold.</p>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <article class="cap-card tight p-6"><div class="cap-beam"></div>
+          <p class="relative text-3xl sm:text-4xl font-semibold text-white">$0</p>
+          <p class="relative mt-3 text-[14px] text-stone-300 leading-snug">Exit fees, ever charged, for any client who's left</p>
+          <p class="relative mt-3 text-[11.5px] text-stone-500">Written into the MSA, not a verbal promise</p>
+        </article>
+        <article class="cap-card tight p-6"><div class="cap-beam"></div>
+          <p class="relative text-3xl sm:text-4xl font-semibold text-white">100%</p>
+          <p class="relative mt-3 text-[14px] text-stone-300 leading-snug">Of credentials issued in your company's name, not ours</p>
+          <p class="relative mt-3 text-[11.5px] text-stone-500">Tenants, domains, and licenses — day one</p>
+        </article>
+        <article class="cap-card tight p-6"><div class="cap-beam"></div>
+          <p class="relative text-3xl sm:text-4xl font-semibold text-white">&lt; 24 hrs</p>
+          <p class="relative mt-3 text-[14px] text-stone-300 leading-snug">To export your full documentation vault, no request ticket</p>
+          <p class="relative mt-3 text-[11.5px] text-stone-500">Usually the same afternoon you ask</p>
+        </article>
+        <article class="cap-card tight p-6"><div class="cap-beam"></div>
+          <p class="relative text-3xl sm:text-4xl font-semibold text-white">0</p>
+          <p class="relative mt-3 text-[14px] text-stone-300 leading-snug">Custom black-box scripts standing between you and a new provider</p>
+          <p class="relative mt-3 text-[11.5px] text-stone-500">Native Microsoft &amp; enterprise-standard tooling only</p>
+        </article>
+      </div>
+      <p class="mt-5 text-[12px] text-stone-500">These are the actual terms in our MSA — not aspirational, not "ask your account manager."</p>
+    </div>
+    <div class="relative z-10 border-t border-white/10 py-5">
+      <div class="logo-marquee"><div class="ticker-track"><span class="ticker-item">Reseller-locked licenses can't move without your old provider's help</span><span class="ticker-item">A verbal "we'll hand it over" isn't a contract clause</span><span class="ticker-item">If you can't export your own network diagram, you don't own it</span><span class="ticker-item">Exit fees are a sign the service wasn't the reason you stayed</span><span class="ticker-item">Ask who holds your domain registrar login right now</span><span class="ticker-item" aria-hidden="true">Reseller-locked licenses can't move without your old provider's help</span><span class="ticker-item" aria-hidden="true">A verbal "we'll hand it over" isn't a contract clause</span><span class="ticker-item" aria-hidden="true">If you can't export your own network diagram, you don't own it</span><span class="ticker-item" aria-hidden="true">Exit fees are a sign the service wasn't the reason you stayed</span><span class="ticker-item" aria-hidden="true">Ask who holds your domain registrar login right now</span></div></div>
+    </div>
+  </section>
+  </div>
+
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <p class="label">Us vs. the typical MSP</p>
+    <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight max-w-2xl">The difference is in the fine print.</h2>
+    <p class="mt-4 text-stone-600 max-w-xl">Every MSP says "we're different." Here's what to actually check in a contract.</p>
+    <div class="mt-10 overflow-x-auto rounded-[24px] border border-stone-200 bg-white">
+      <table class="dm-table">
+        <thead><tr><th scope="col">Criterion</th><th scope="col">Typical MSP</th><th scope="col" class="dm-partner">Seynox</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Admin credentials</th><td>Held under the provider's reseller account</td><td class="dm-partner">Issued to your company, from day one</td></tr>
+          <tr><th scope="row">Network documentation</th><td>Kept internally, shared on request (maybe)</td><td class="dm-partner">Live vault, exportable by you, any time</td></tr>
+          <tr><th scope="row">Contract exit</th><td>Notice period, transition fees, delays</td><td class="dm-partner">Structured handover, zero exit fees</td></tr>
+          <tr><th scope="row">Tooling</th><td>Proprietary scripts only they can read</td><td class="dm-partner">Native Microsoft &amp; enterprise-standard only</td></tr>
+          <tr><th scope="row">If you leave</th><td>Passwords reset, access revoked, good luck</td><td class="dm-partner">We walk your new provider through everything</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="promise-framework" class="onboard-band mt-12">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-[0.85fr_1.2fr] gap-14 items-start">
+      <div class="lg:sticky lg:top-28">
+        <p class="label">How we keep it honest</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Transparency isn't a launch promise. It's a schedule.</h2>
+        <p class="mt-5 text-stone-600 leading-relaxed">Anyone can say "you own your data" in a sales call. Here's what actually happens, and when.</p>
+      </div>
+      <ol class="relative border-l border-stone-200 ml-3">
+        <li class="pl-8 pb-9 relative"><span class="absolute -left-[7px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-orange-500"></span><p class="text-[12px] font-semibold text-orange-700">Day one</p><h3 class="mt-1 text-xl font-semibold">Every credential issued in your name</h3><p class="mt-2 text-[15px] text-stone-600">Tenants, domains, and licenses are registered to your company before we touch a single setting.</p></li>
+        <li class="pl-8 pb-9 relative"><span class="absolute -left-[7px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-orange-500"></span><p class="text-[12px] font-semibold text-orange-700">Every quarter</p><h3 class="mt-1 text-xl font-semibold">A documentation audit</h3><p class="mt-2 text-[15px] text-stone-600">The vault is checked against what's actually deployed, so it never quietly goes stale.</p></li>
+        <li class="pl-8 pb-9 relative"><span class="absolute -left-[7px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-orange-500"></span><p class="text-[12px] font-semibold text-orange-700">Any time you ask</p><h3 class="mt-1 text-xl font-semibold">Export the whole vault, no ticket needed</h3><p class="mt-2 text-[15px] text-stone-600">Topology, credentials, SOPs — your leadership team can pull all of it without waiting on us.</p></li>
+        <li class="pl-8 relative"><span class="live-dot absolute -left-[9px] top-0.5"></span><p class="text-[12px] font-semibold text-orange-700">If you ever leave</p><h3 class="mt-1 text-xl font-semibold">A structured handover, written into the MSA</h3><p class="mt-2 text-[15px] text-stone-600">Not a favor we might do — a clause you can point to.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 py-16 sm:py-20">
+    <p class="label text-center flex items-center justify-center gap-2"><span class="w-4 h-px bg-orange-500"></span> FAQ</p>
+    <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-center">The questions that decide the call</h2>
+    <p class="mt-3 text-[15px] text-stone-500 text-center">If these answers aren't clean, don't book time.</p>
+    <div class="mt-10 space-y-3" id="page-faq-promise">
+      <article class="faq is-open">
+        <button type="button">Who actually owns our Microsoft 365 tenant, domain names, and cloud assets?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>You do — 100%. Every tenant, subscription, and domain is provisioned under your organization's legal name. We operate strictly as delegated administrators.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">Where is our network documentation kept, and do we have direct access?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>In a secure, centralized vault your leadership team can open in real time — configuration data, IP schemas, asset inventories, and SOPs, always current.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">What happens if we switch providers or bring IT in-house?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>A structured transition call, full documentation export, and master-credential handover — with zero downtime and zero exit fees.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">How do you prevent proprietary lock-in when setting up our systems?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>Native, vendor-agnostic frameworks — Intune, Entra ID, standard Microsoft tooling — so any certified engineer can step in without a rebuild.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">Do you charge onboarding or setup fees to get started?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>No. Onboarding is part of the engagement, not a separate line item — the same 30-day discovery-to-cutover process described on our pricing and service pages.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">What if our previous provider won't cooperate with a migration?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>It happens more than it should. We've handled uncooperative handovers before — worst case, we rebuild what's needed from a read-only discovery pass rather than waiting on someone who's incentivized to stall.</p></div></div>
+      </article>
+    </div>
+  </section>
+
+</div>
+
+<div class="page" data-page="/pricing" hidden>
+  <div class="hero-panel hero--pricing relative">
+    <canvas class="mesh-canvas"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-vignette"></div>
+      <div class="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl"><div class="site-header-bar rounded-[28px] lg:rounded-full">
+        <div class="flex items-center justify-between gap-6 pl-5 pr-2.5 py-2.5">
+          <a href="#/" class="flex items-center gap-2.5 shrink-0">
+            <svg class="hdr-brand-mark" width="30" height="30" viewBox="0 0 40 40" fill="none">
+              <path class="hdr-line" d="M14 6 L6 12 L6 28 L14 34" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="hdr-line" d="M26 6 L34 12 L34 28 L26 34" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 13 L25 20 L16 27" stroke="#F5821F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="hdr-logo-word font-display font-semibold text-[1.02rem] leading-tight">Seynox<span class="hdr-logo-sub block text-[0.62rem] font-body font-medium tracking-wide -mt-0.5">IT SOLUTIONS</span></span>
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-1 text-sm font-medium">
+            <div class="menu-item relative" data-open="false">
+              <button class="hdr-link menu-trigger flex items-center gap-1.5 px-3.5 py-2 rounded-full">
+                What We Do
+                <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="menu-panel absolute z-20 top-[calc(100%+12px)] left-0 w-80 max-w-[92vw] bg-white border border-slate-200/80 rounded-3xl shadow-softhover p-3">
+                <div class="flex flex-col gap-1">
+                  <a href="#/managed-it" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-ink text-accent flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v10H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 20h6M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Managed IT</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">24/7 help desk &amp; monitoring</span></span>
+                  </a>
+                  <a href="#/cloud-m365" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 18a5 5 0 01-1-9.9A6 6 0 0117.9 8 4.5 4.5 0 0117 18H7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Cloud &amp; Microsoft 365</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">Tenant admin &amp; migrations</span></span>
+                  </a>
+                  <a href="#/cybersecurity" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Cybersecurity</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">SOC, EDR &amp; Zero Trust</span></span>
+                  </a>
+                  <a href="#/it-consulting" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-violet-50 text-violet-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19V9l6-4 6 4v10M4 19h16M10 19v-6h4v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">IT Consulting</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">vCIO &amp; roadmaps</span></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="menu-item relative" data-open="false">
+              <button class="hdr-link menu-trigger flex items-center gap-1.5 px-3.5 py-2 rounded-full">
+                Industries
+                <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="menu-panel absolute z-20 top-[calc(100%+12px)] left-0 w-72 max-w-[92vw] bg-white border border-slate-200/80 rounded-3xl shadow-softhover p-3">
+                <a href="#/industries/legal" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Legal &amp; Professional Services
+                </a>
+                <a href="#/industries/healthcare" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9C.9 8.5 2.7 5 6 5c2 0 3.3 1.1 4 2 0.7-0.9 2-2 4-2 3.3 0 5.1 3.5 3.5 7-2.5 4.5-9.5 9-9.5 9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Healthcare &amp; Allied Health
+                </a>
+                <a href="#/industries/financial" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M4 20V6a2 2 0 012-2h12a2 2 0 012 2v14M9 9h6M9 13h6M9 17h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Financial &amp; Accounting
+                </a>
+                <a href="#/industries/construction" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Construction &amp; Trades
+                </a>
+                <a href="#/industries/real-estate" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7M5 10v10h14V10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Real Estate &amp; Property Mgmt.
+                </a>
+                <a href="#/industries/manufacturing" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 20V10l6 4v-4l6 4V6l6 4v10H3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Manufacturing &amp; Logistics
+                </a>
+              </div>
+            </div>
+            <a href="#/promise" class="hdr-link px-3.5 py-2 rounded-full">Why Seynox</a>
+            <a href="#/pricing" class="hdr-link px-3.5 py-2 rounded-full">Pricing</a>
+            <a href="#/insights" class="hdr-link px-3.5 py-2 rounded-full">Insights</a>
+          </nav>
+
+          <div class="flex items-center gap-2">
+            <a href="#/contact" class="hdr-cta hidden sm:inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm whitespace-nowrap">
+              Book a Strategy Call
+            </a>
+            <button class="hdr-toggle mobile-nav-toggle lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full" aria-label="Toggle menu" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mobile-nav-panel lg:hidden hidden border-t border-white/15 px-3 pb-4 pt-2">
+          <div class="flex flex-col">
+            <button class="hdr-link mobile-trigger flex items-center justify-between w-full px-3 py-3 text-left font-semibold text-[0.95rem]">
+              What We Do
+              <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="hidden pl-3 pb-2 flex flex-col gap-1">
+              <a href="#/managed-it" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Managed IT</a>
+              <a href="#/cloud-m365" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Cloud &amp; Microsoft 365</a>
+              <a href="#/cybersecurity" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Cybersecurity</a>
+              <a href="#/it-consulting" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">IT Consulting</a>
+            </div>
+            <button class="hdr-link mobile-trigger flex items-center justify-between w-full px-3 py-3 text-left font-semibold text-[0.95rem]">
+              Industries
+              <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="hidden pl-3 pb-2 flex flex-col gap-1">
+              <a href="#/industries/legal" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Legal &amp; Professional Services</a>
+              <a href="#/industries/healthcare" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Healthcare &amp; Allied Health</a>
+              <a href="#/industries/financial" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Financial &amp; Accounting</a>
+              <a href="#/industries/construction" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Construction &amp; Trades</a>
+              <a href="#/industries/real-estate" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Real Estate &amp; Property Mgmt.</a>
+              <a href="#/industries/manufacturing" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Manufacturing &amp; Logistics</a>
+            </div>
+            <a href="#/promise" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Why Seynox</a>
+            <a href="#/pricing" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Pricing</a>
+            <a href="#/insights" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Insights</a>
+            <a href="#/contact" class="hdr-cta mt-2 inline-flex items-center justify-center gap-2 text-sm font-semibold px-5 py-3 rounded-full">Book a Strategy Call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 pt-36 sm:pt-44 pb-40 text-center">
+      <h1 class="mt-4 font-semibold tracking-tight">
+        <span class="hero-lead">Straightforward Pricing, Sized to Your Team.</span>
+        <span class="script-line">No surprise overages. Ever.</span>
+      </h1>
+      <p class="mt-5 text-[15px] text-stone-300 max-w-xl mx-auto leading-relaxed">A flat monthly rate per seat. Every package includes the Handover Pack — the same documentation you'd keep if you ever left.</p>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <a href="#/contact" class="cta-main px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-amber-600 text-neutral-950 text-sm font-semibold">Book a Strategy Call</a>
+        <a href="#" data-scroll-to="pricing-tiers" class="px-6 py-3 rounded-full border border-white/15 text-sm">See What's Included</a>
+      </div>
+      <p class="mt-6 text-[12px] tracking-wide text-stone-400">No setup fees <span class="opacity-35">·</span> Month-to-month <span class="opacity-35">·</span> Cancel any time</p>
+    </div>
+  </div>
+
+  <section id="pricing-tiers" class="px-4 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-xl reveal">
+        <span class="inline-flex items-center gap-2 text-accent text-[0.78rem] font-bold tracking-wide uppercase mb-4"><span class="w-4 h-0.5 bg-accent rounded-full"></span>How We Bill</span>
+        <h2 class="text-2xl sm:text-[2rem] font-semibold tracking-tight">Three packages, one flat rate per seat</h2>
+        <p class="mt-4 text-slate-500 leading-relaxed">Exact pricing depends on your environment — every quote follows a walkthrough of what you actually have, not a generic rate card.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 items-stretch">
+        <article class="tier-card reveal">
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-slate-400 uppercase">Starter</p>
+          <h3 class="mt-3 text-xl font-semibold">1–10 seats</h3>
+          <div class="tier-rule mt-4 mb-4"></div>
+          <p class="text-[13.5px] text-slate-500 leading-relaxed">For small teams who need reliable day-to-day support without a full-time IT hire.</p>
+          <ul class="mt-6 space-y-2.5 text-[13.5px] text-slate-700">
+            <li class="flex gap-2"><span class="tier-check">✓</span> Help desk &amp; remote support</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> Patch management &amp; monitoring</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> Handover Pack documentation</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> Named admin credentials, in your name</li>
+          </ul>
+        </article>
+        <article class="tier-card featured reveal">
+          <span class="tier-badge">Most common</span>
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-orange-300 uppercase">Growth</p>
+          <h3 class="mt-3 text-xl font-semibold">11–25 seats</h3>
+          <div class="tier-rule mt-4 mb-4"></div>
+          <p class="text-[13.5px] leading-relaxed">Everything in Starter, plus proactive security and cloud governance as headcount grows.</p>
+          <ul class="mt-6 space-y-2.5 text-[13.5px]">
+            <li class="flex gap-2"><span class="tier-check">✓</span> Everything in Starter</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> EDR, MFA &amp; Zero Trust baseline</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> M365 tenant &amp; identity administration</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> Quarterly documentation audit</li>
+          </ul>
+        </article>
+        <article class="tier-card reveal">
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-slate-400 uppercase">Enterprise</p>
+          <h3 class="mt-3 text-xl font-semibold">25+ seats, custom</h3>
+          <div class="tier-rule mt-4 mb-4"></div>
+          <p class="text-[13.5px] text-slate-500 leading-relaxed">For firms with compliance requirements or multiple locations that need a dedicated vCIO.</p>
+          <ul class="mt-6 space-y-2.5 text-[13.5px] text-slate-700">
+            <li class="flex gap-2"><span class="tier-check">✓</span> Everything in Growth</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> Dedicated vCIO &amp; compliance roadmap</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> Multi-site network management</li>
+            <li class="flex gap-2"><span class="tier-check">✓</span> Custom SLA terms</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-8">
+    <div class="max-w-xl reveal mb-8">
+      <span class="inline-flex items-center gap-2 text-accent text-[0.78rem] font-bold tracking-wide uppercase mb-4"><span class="w-4 h-0.5 bg-accent rounded-full"></span>Every package, no exceptions</span>
+      <h2 class="text-2xl sm:text-[2rem] font-semibold tracking-tight">What's always included</h2>
+    </div>
+    <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 shadow-soft">
+      <div class="included-row">
+        <div class="included-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-[1.05rem]">24/7 help desk &amp; monitoring</h3>
+          <p class="mt-1.5 text-slate-500 text-[0.94rem] leading-relaxed">Direct-to-engineer support, not a tiered ticket queue. Systems watched around the clock, not just during business hours.</p>
+        </div>
+      </div>
+      <div class="included-row">
+        <div class="included-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-[1.05rem]">The Handover Pack</h3>
+          <p class="mt-1.5 text-slate-500 text-[0.94rem] leading-relaxed">The exact documentation you'd want on day one of leaving — kept current from day one of joining, not assembled after the fact.</p>
+        </div>
+      </div>
+      <div class="included-row">
+        <div class="included-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-[1.05rem]">Named admin credentials</h3>
+          <p class="mt-1.5 text-slate-500 text-[0.94rem] leading-relaxed">Tenants, domains, and licenses registered to your company from the first day — never masked behind a reseller account.</p>
+        </div>
+      </div>
+      <div class="included-row">
+        <div class="included-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-[1.05rem]">Zero exit fees</h3>
+          <p class="mt-1.5 text-slate-500 text-[0.94rem] leading-relaxed">Downgrade, cancel, or leave for another provider — the handover process and the price of doing it don't change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <p class="label">Decision matrix</p>
+    <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight max-w-2xl">Build, buy, or partner — an honest comparison.</h2>
+    <p class="mt-4 text-stone-600 max-w-xl">Every model can work. The right one depends on your size, risk, and how much of your leadership time IT should consume.</p>
+    <div class="mt-10 overflow-x-auto rounded-[24px] border border-stone-200 bg-white">
+      <table class="dm-table">
+        <thead><tr><th scope="col">Criterion</th><th scope="col">Build — hire in-house</th><th scope="col">Buy — break-fix &amp; DIY tools</th><th scope="col" class="dm-partner">Partner — Seynox</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Typical cost model</th><td>Salary, benefits, tooling, and training</td><td>Low retainer, unpredictable invoices</td><td class="dm-partner">Flat per-seat monthly rate</td></tr>
+          <tr><th scope="row">Coverage</th><td>Business hours, one person</td><td>When you call and wait</td><td class="dm-partner">24/7 engineers plus security monitoring</td></tr>
+          <tr><th scope="row">Time to a secure baseline</th><td>Often 6–12 months</td><td>Rarely reached</td><td class="dm-partner">30-day onboarding</td></tr>
+          <tr><th scope="row">Documentation</th><td>Depends entirely on the hire</td><td>Usually none</td><td class="dm-partner">Exportable Handover Pack, day one</td></tr>
+          <tr><th scope="row">Key-person &amp; exit risk</th><td>High — one person holds the keys</td><td>High — the vendor holds the passwords</td><td class="dm-partner">Low — you hold root, zero exit fees</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 py-16 sm:py-20">
+    <p class="label text-center flex items-center justify-center gap-2"><span class="w-4 h-px bg-orange-500"></span> FAQ</p>
+    <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-center">Billing, contracts, and the fine print</h2>
+    <p class="mt-3 text-[15px] text-stone-500 text-center">If these answers aren't clean, don't book time.</p>
+    <div class="mt-10 space-y-3" id="page-faq-pricing">
+      <article class="faq is-open">
+        <button type="button">Is there a setup or onboarding fee?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>No. The 30-day discovery-to-cutover process is part of the engagement, not a separate line item. What you pay in month one is the same flat rate you pay after.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">What actually counts as a "seat"?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>One managed user — someone with a device, email account, and login we support. Shared kiosks, meeting-room displays, and unmanned equipment don't count.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">Can we change tiers as our team grows or shrinks?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>Yes. Pricing adjusts at your next billing cycle when your seat count crosses a tier threshold — no renegotiation, no penalty either direction.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">Is there a minimum contract length?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>No. Every engagement is month-to-month. If a fixed term ever makes sense for your compliance or budgeting needs, we'll put it in writing — but it's never a default.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">What's NOT included in the flat rate?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>Third-party software licenses, new hardware purchases, and large one-off projects (a full office move, a server replacement) are quoted separately — we'll always tell you before anything outside the flat rate gets billed.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">How does pricing actually get confirmed?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>A free strategy call, then a short discovery walkthrough of what you actually run today. The quote you get reflects your real environment, not a generic per-seat rate card.</p></div></div>
+      </article>
+    </div>
+  </section>
+
+</div>
+
+<div class="page" data-page="/insights" hidden>
+  <div class="hero-panel hero--insights relative">
+    <canvas class="mesh-canvas"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-vignette"></div>
+      <div class="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl"><div class="site-header-bar rounded-[28px] lg:rounded-full">
+        <div class="flex items-center justify-between gap-6 pl-5 pr-2.5 py-2.5">
+          <a href="#/" class="flex items-center gap-2.5 shrink-0">
+            <svg class="hdr-brand-mark" width="30" height="30" viewBox="0 0 40 40" fill="none">
+              <path class="hdr-line" d="M14 6 L6 12 L6 28 L14 34" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="hdr-line" d="M26 6 L34 12 L34 28 L26 34" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 13 L25 20 L16 27" stroke="#F5821F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="hdr-logo-word font-display font-semibold text-[1.02rem] leading-tight">Seynox<span class="hdr-logo-sub block text-[0.62rem] font-body font-medium tracking-wide -mt-0.5">IT SOLUTIONS</span></span>
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-1 text-sm font-medium">
+            <div class="menu-item relative" data-open="false">
+              <button class="hdr-link menu-trigger flex items-center gap-1.5 px-3.5 py-2 rounded-full">
+                What We Do
+                <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="menu-panel absolute z-20 top-[calc(100%+12px)] left-0 w-80 max-w-[92vw] bg-white border border-slate-200/80 rounded-3xl shadow-softhover p-3">
+                <div class="flex flex-col gap-1">
+                  <a href="#/managed-it" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-ink text-accent flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v10H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 20h6M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Managed IT</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">24/7 help desk &amp; monitoring</span></span>
+                  </a>
+                  <a href="#/cloud-m365" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 18a5 5 0 01-1-9.9A6 6 0 0117.9 8 4.5 4.5 0 0117 18H7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Cloud &amp; Microsoft 365</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">Tenant admin &amp; migrations</span></span>
+                  </a>
+                  <a href="#/cybersecurity" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">Cybersecurity</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">SOC, EDR &amp; Zero Trust</span></span>
+                  </a>
+                  <a href="#/it-consulting" class="flex items-start gap-3 p-3.5 rounded-2xl hover:bg-slate-50">
+                    <span class="w-9 h-9 rounded-xl bg-violet-50 text-violet-500 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19V9l6-4 6 4v10M4 19h16M10 19v-6h4v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                    <span><span class="block font-semibold text-ink text-[0.9rem]">IT Consulting</span><span class="block text-slate-500 text-[0.8rem] mt-0.5">vCIO &amp; roadmaps</span></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="menu-item relative" data-open="false">
+              <button class="hdr-link menu-trigger flex items-center gap-1.5 px-3.5 py-2 rounded-full">
+                Industries
+                <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="menu-panel absolute z-20 top-[calc(100%+12px)] left-0 w-72 max-w-[92vw] bg-white border border-slate-200/80 rounded-3xl shadow-softhover p-3">
+                <a href="#/industries/legal" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Legal &amp; Professional Services
+                </a>
+                <a href="#/industries/healthcare" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9C.9 8.5 2.7 5 6 5c2 0 3.3 1.1 4 2 0.7-0.9 2-2 4-2 3.3 0 5.1 3.5 3.5 7-2.5 4.5-9.5 9-9.5 9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Healthcare &amp; Allied Health
+                </a>
+                <a href="#/industries/financial" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M4 20V6a2 2 0 012-2h12a2 2 0 012 2v14M9 9h6M9 13h6M9 17h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Financial &amp; Accounting
+                </a>
+                <a href="#/industries/construction" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Construction &amp; Trades
+                </a>
+                <a href="#/industries/real-estate" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7M5 10v10h14V10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Real Estate &amp; Property Mgmt.
+                </a>
+                <a href="#/industries/manufacturing" class="flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 text-[0.9rem] font-medium text-ink">
+                  <svg width="16" height="16" class="text-accent shrink-0" viewBox="0 0 24 24" fill="none"><path d="M3 20V10l6 4v-4l6 4V6l6 4v10H3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Manufacturing &amp; Logistics
+                </a>
+              </div>
+            </div>
+            <a href="#/promise" class="hdr-link px-3.5 py-2 rounded-full">Why Seynox</a>
+            <a href="#/pricing" class="hdr-link px-3.5 py-2 rounded-full">Pricing</a>
+            <a href="#/insights" class="hdr-link px-3.5 py-2 rounded-full">Insights</a>
+          </nav>
+
+          <div class="flex items-center gap-2">
+            <a href="#/contact" class="hdr-cta hidden sm:inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm whitespace-nowrap">
+              Book a Strategy Call
+            </a>
+            <button class="hdr-toggle mobile-nav-toggle lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full" aria-label="Toggle menu" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mobile-nav-panel lg:hidden hidden border-t border-white/15 px-3 pb-4 pt-2">
+          <div class="flex flex-col">
+            <button class="hdr-link mobile-trigger flex items-center justify-between w-full px-3 py-3 text-left font-semibold text-[0.95rem]">
+              What We Do
+              <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="hidden pl-3 pb-2 flex flex-col gap-1">
+              <a href="#/managed-it" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Managed IT</a>
+              <a href="#/cloud-m365" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Cloud &amp; Microsoft 365</a>
+              <a href="#/cybersecurity" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Cybersecurity</a>
+              <a href="#/it-consulting" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">IT Consulting</a>
+            </div>
+            <button class="hdr-link mobile-trigger flex items-center justify-between w-full px-3 py-3 text-left font-semibold text-[0.95rem]">
+              Industries
+              <svg class="menu-chev" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="hidden pl-3 pb-2 flex flex-col gap-1">
+              <a href="#/industries/legal" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Legal &amp; Professional Services</a>
+              <a href="#/industries/healthcare" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Healthcare &amp; Allied Health</a>
+              <a href="#/industries/financial" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Financial &amp; Accounting</a>
+              <a href="#/industries/construction" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Construction &amp; Trades</a>
+              <a href="#/industries/real-estate" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Real Estate &amp; Property Mgmt.</a>
+              <a href="#/industries/manufacturing" class="hdr-link px-3 py-2 rounded-xl text-[0.9rem]">Manufacturing &amp; Logistics</a>
+            </div>
+            <a href="#/promise" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Why Seynox</a>
+            <a href="#/pricing" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Pricing</a>
+            <a href="#/insights" class="hdr-link px-3 py-3 font-semibold text-[0.95rem]">Insights</a>
+            <a href="#/contact" class="hdr-cta mt-2 inline-flex items-center justify-center gap-2 text-sm font-semibold px-5 py-3 rounded-full">Book a Strategy Call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 pt-36 sm:pt-44 pb-40 text-center">
+      <h1 class="mt-4 font-semibold tracking-tight">
+        <span class="hero-lead">Guides and Checklists from the Field.</span>
+        <span class="script-line">No sales pitch. Just what works.</span>
+      </h1>
+      <p class="mt-5 text-[15px] text-stone-300 max-w-xl mx-auto leading-relaxed">Practical write-ups from engineers who've actually run the migration, passed the audit, or cleaned up the mess. New guides publish monthly.</p>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <a href="#/contact" class="cta-main px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-amber-600 text-neutral-950 text-sm font-semibold">Book a Strategy Call</a>
+        <a href="#" data-scroll-to="insights-subscribe" class="px-6 py-3 rounded-full border border-white/15 text-sm">Get New Guides by Email</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="px-4 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-xl reveal mb-10">
+        <span class="inline-flex items-center gap-2 text-accent text-[0.78rem] font-bold tracking-wide uppercase mb-4"><span class="w-4 h-0.5 bg-accent rounded-full"></span>Latest</span>
+        <h2 class="text-2xl sm:text-[2rem] font-semibold tracking-tight">Guides and checklists from the field</h2>
+        <p class="mt-4 text-slate-500 leading-relaxed">Written by the engineers who do the work — not a marketing team paraphrasing a vendor blog.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
+        <a href="#" class="insight-card reveal">
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">Guide</p>
+          <div class="insight-rule mt-4 mb-4"></div>
+          <h3 class="text-[16px] font-semibold leading-snug">A founder's checklist for choosing an MSP</h3>
+          <p class="mt-3 text-[13.5px] text-slate-500 leading-relaxed">The questions to ask before you sign — including who actually owns your admin credentials.</p>
+        </a>
+        <a href="#" class="insight-card reveal">
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">Checklist</p>
+          <div class="insight-rule mt-4 mb-4"></div>
+          <h3 class="text-[16px] font-semibold leading-snug">SOC 2 readiness for a 10-person firm</h3>
+          <p class="mt-3 text-[13.5px] text-slate-500 leading-relaxed">What actually needs to be in place before your first audit — and what can wait.</p>
+        </a>
+        <a href="#" class="insight-card reveal">
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">Tech guide</p>
+          <div class="insight-rule mt-4 mb-4"></div>
+          <h3 class="text-[16px] font-semibold leading-snug">Five signs your IT documentation is incomplete</h3>
+          <p class="mt-3 text-[13.5px] text-slate-500 leading-relaxed">A quick self-audit for whether your setup would survive losing a key vendor.</p>
+        </a>
+        <a href="#" class="insight-card reveal">
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">Guide</p>
+          <div class="insight-rule mt-4 mb-4"></div>
+          <h3 class="text-[16px] font-semibold leading-snug">What "zero exit fees" actually means in a contract</h3>
+          <p class="mt-3 text-[13.5px] text-slate-500 leading-relaxed">The clauses that turn a friendly sales promise into something you can enforce.</p>
+        </a>
+        <a href="#" class="insight-card reveal">
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">Checklist</p>
+          <div class="insight-rule mt-4 mb-4"></div>
+          <h3 class="text-[16px] font-semibold leading-snug">Before you sign with any MSP: 12 questions</h3>
+          <p class="mt-3 text-[13.5px] text-slate-500 leading-relaxed">Print it, bring it to the sales call, and watch how they answer question seven.</p>
+        </a>
+        <a href="#" class="insight-card reveal">
+          <p class="text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">Tech guide</p>
+          <div class="insight-rule mt-4 mb-4"></div>
+          <h3 class="text-[16px] font-semibold leading-snug">MFA fatigue attacks: what they look like and how to stop them</h3>
+          <p class="mt-3 text-[13.5px] text-slate-500 leading-relaxed">Why "just approve it, I'm trying to log in" is exactly what an attacker wants you to think.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="insights-subscribe" class="px-4 pb-6 sm:pb-10">
+    <div class="max-w-6xl mx-auto">
+      <div class="relative overflow-hidden rounded-4xl bg-gradient-to-br from-ink via-[#1E2450] to-[#2A2F63] px-8 sm:px-16 py-14 sm:py-16 text-center reveal">
+        <div class="pointer-events-none absolute inset-0 overflow-hidden">
+          <div class="absolute -top-16 -left-10 w-72 h-72 rounded-full bg-accent/25 blur-3xl"></div>
+          <div class="absolute -bottom-20 right-0 w-80 h-80 rounded-full bg-sky-400/15 blur-3xl"></div>
+        </div>
+        <div class="relative z-10 max-w-xl mx-auto">
+          <h2 class="text-white text-2xl sm:text-3xl font-semibold tracking-tight leading-tight">Get new guides by email</h2>
+          <p class="mt-4 text-slate-300 leading-relaxed">One email when a new guide publishes. No newsletter fluff, no drip campaign.</p>
+          <a href="mailto:hello@seynox.ca?subject=Add%20me%20to%20Insights" class="inline-flex items-center gap-2 mt-8 bg-white text-ink font-semibold px-8 py-3.5 rounded-full hover:bg-accent hover:text-white transition shadow-lg hover:-translate-y-0.5">Email Us to Subscribe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 py-16 sm:py-20">
+    <p class="label text-center flex items-center justify-center gap-2"><span class="w-4 h-px bg-orange-500"></span> FAQ</p>
+    <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-center">About these guides</h2>
+    <div class="mt-10 space-y-3" id="page-faq-insights">
+      <article class="faq is-open">
+        <button type="button">How often do you publish?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>Roughly monthly. We'd rather publish one useful guide than four padded-out ones, so the schedule flexes around what's actually worth writing.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">Can I request a topic?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>Yes — email us. If it's a question we hear often from clients, it's probably worth a proper guide instead of a one-off answer.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">Are these guides specific to BC, or general?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>Mixed. Compliance and privacy-law content is written for BC/Canada specifically; technical guides (MFA, backups, documentation) apply anywhere.</p></div></div>
+      </article>
+      <article class="faq">
+        <button type="button">Do you accept guest contributions?<svg class="chev w-4 h-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="body"><div><p>Not currently. Everything published here is written by our own engineers, based on work we've actually done.</p></div></div>
+      </article>
+    </div>
+  </section>
+
+</div>
+
 <div class="page" data-page="/contact" hidden>
   <div class="sub-hero hero-zone rounded-4xl overflow-hidden">
     <div class="px-6 sm:px-12 pt-6 sm:pt-8 pb-14 sm:pb-16 relative">
@@ -5844,6 +6622,9 @@
     '/cloud-m365': { title:'Microsoft 365 Managed Services & Cloud Solutions | Seynox IT Solutions', desc:'Enterprise Microsoft 365 migrations, Intune device management, and secure Azure architecture. Zero business downtime, no reseller lock-in, and 100% tenant ownership.' },
     '/cybersecurity': { title:'Managed Cybersecurity Services & Threat Defense | Seynox IT Solutions', desc:'Enterprise cybersecurity engineered for modern threat landscapes. Get 24/7 SOC surveillance, autonomous EDR device containment, Zero Trust architecture, and guaranteed cyber insurance compliance.' },
     '/it-consulting': { title:'Strategic IT Consulting & vCIO Services | Seynox IT Solutions', desc:'Connect your technology investments directly to business ROI. Executive vCIO advisory, 3-year IT budgeting, regulatory compliance readiness, and software consolidation.' },
+    '/promise': { title:'Why Seynox | The Transparency Promise', desc:"Master keys in your name, a documentation vault you can export any time, and zero exit fees. See the actual terms in Seynox's MSA." },
+    '/pricing': { title:'Managed IT Pricing | Seynox IT Solutions', desc:'Flat, per-seat managed IT pricing with no setup fees and no exit fees. See what\'s included in Starter, Growth, and Enterprise.' },
+    '/insights': { title:'Insights | Guides & Checklists from Seynox IT Solutions', desc:'Practical guides and checklists on choosing an MSP, IT documentation, and cybersecurity basics, written by working engineers.' },
     '/industries/legal': { title:'IT for Law Firms & Professional Services | Seynox', desc:'Confidentiality, retention, and audit-ready systems for legal and professional-services firms in Surrey & Vancouver.' },
     '/industries/healthcare': { title:'IT for Healthcare & Allied Health | Seynox', desc:'Access controls and uptime for clinics and allied health practices across the Lower Mainland.' },
     '/industries/financial': { title:'IT for Accounting & Financial Firms | Seynox', desc:'Client data security and tax-season reliability for accounting and financial-services firms.' },
@@ -5854,7 +6635,7 @@
   };
   // these aren't separate pages -- they're sections on the homepage. From any
   // other page, routing to one of these shows the homepage and scrolls to it.
-  var HOME_ANCHORS = { '/promise':'promise', '/pricing':'pricing', '/insights':'insights', '/services':'services', '/industries':'industries' };
+  var HOME_ANCHORS = { '/services':'services', '/industries':'industries' };
 
   var pages = document.querySelectorAll('.page');
   var metaDesc = document.getElementById('meta-desc');
